@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compress images online with FileSaviour. Reduce JPG, PNG, GIF, and WebP size with quality controls and batch-friendly settings.">
+    <title>Image Compress - FileSaviour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/tool-pages.css">
+    <link rel="icon" href="../assets/images/favicon/FileSaviour_ICO.png">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-shell">
+            <a class="brand" href="../../index.html" aria-label="FileSaviour home">
+                <img src="../../assets/images/logo/FileSaviour_LOGO.png" alt="FileSaviour logo">
+                <span class="brand-word">FileSaviour</span>
+            </a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="../../index.html">Home</a>
+                <a href="image-resize.html">Resize</a>
+                <a class="active" href="image-compress.html">Compress</a>
+                <a href="image-crop.html">Crop</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="../../contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="btn btn-secondary btn-small" href="../../about.html">About</a>
+                <a class="btn btn-primary btn-small" href="#tool">Use Tool</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="tool-hero" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=82');">
+            <div class="tool-hero-inner">
+                <span class="eyebrow"><i class="fa-solid fa-compress"></i> Image Tool</span>
+                <h1>Image Compress</h1>
+                <p class="hero-copy">
+                    Reduce image file size while keeping visuals crisp. Optimize photos, graphics, screenshots, GIFs,
+                    and WebP assets for faster websites, smoother uploads, and lighter storage.
+                </p>
+                <p class="type-line">
+                    Compress for <span class="typed-text" data-typed='["faster websites", "email attachments", "SEO-friendly media", "smaller product galleries", "low-bandwidth sharing"]'>faster websites</span><span class="typing-caret"></span>
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#tool"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Images</a>
+                    <a class="btn btn-secondary" href="image-resize.html"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Resize Instead</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="tool-shell">
+            <section class="kpi-grid" aria-label="Image compression highlights">
+                <div class="kpi-card"><strong>70%</strong><span>sample reduction target for large web photos</span></div>
+                <div class="kpi-card"><strong>4</strong><span>supported image families: JPG, PNG, GIF, WebP</span></div>
+                <div class="kpi-card"><strong>Batch</strong><span>upload multiple files with one quality profile</span></div>
+                <div class="kpi-card"><strong>WebP</strong><span>modern export option for smaller web assets</span></div>
+            </section>
+
+            <section class="tool-layout" id="tool">
+                <div>
+                    <article class="tool-card">
+                        <div class="section-title">
+                            <div>
+                                <h2>Upload images</h2>
+                                <p>Drop one image or a batch of files and apply one compression recipe.</p>
+                            </div>
+                        </div>
+                        <div class="upload-zone">
+                            <div>
+                                <i class="fa-solid fa-images"></i>
+                                <h3>Drop images here</h3>
+                                <p id="selectedFile">No files selected yet. Batch upload is ready for repeated optimization jobs.</p>
+                                <input class="hidden-input" type="file" id="imageInput" accept="image/*" multiple data-file-label="#selectedFile">
+                                <div class="inline-actions">
+                                    <label class="btn btn-secondary" for="imageInput"><i class="fa-solid fa-folder-open"></i> Choose Images</label>
+                                    <button class="btn btn-secondary" type="button"><i class="fa-solid fa-trash-can"></i> Clear Queue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="section-title">
+                            <div>
+                                <h2>Compression queue</h2>
+                                <p>Preview how each file moves from original size to optimized output.</p>
+                            </div>
+                        </div>
+                        <ul class="queue-list">
+                            <li class="queue-item"><i class="fa-solid fa-image"></i><div><strong>product-gallery-01.jpg</strong><small>2.4 MB to 680 KB, 72% smaller</small><div class="progress-bar"><span style="width: 72%"></span></div></div></li>
+                            <li class="queue-item"><i class="fa-solid fa-image"></i><div><strong>landing-banner.png</strong><small>1.8 MB to 540 KB, 70% smaller</small><div class="progress-bar"><span style="width: 70%"></span></div></div></li>
+                            <li class="queue-item"><i class="fa-solid fa-film"></i><div><strong>tutorial-loop.gif</strong><small>5.2 MB to 2.1 MB, 60% smaller</small><div class="progress-bar"><span style="width: 60%"></span></div></div></li>
+                        </ul>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="section-title">
+                            <div>
+                                <h2>Format guidance</h2>
+                                <p>Pick the right output format based on quality, transparency, and browser needs.</p>
+                            </div>
+                        </div>
+                        <div class="mini-grid">
+                            <div class="mini-card"><i class="fa-solid fa-camera"></i><h3>JPG</h3><p>Best for photos and broad compatibility.</p></div>
+                            <div class="mini-card"><i class="fa-solid fa-layer-group"></i><h3>PNG</h3><p>Best for graphics and transparency.</p></div>
+                            <div class="mini-card"><i class="fa-solid fa-globe"></i><h3>WebP</h3><p>Best for modern web performance.</p></div>
+                            <div class="mini-card"><i class="fa-solid fa-film"></i><h3>GIF</h3><p>Best for simple looping animations.</p></div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside>
+                    <article class="side-card">
+                        <div class="section-title">
+                            <div>
+                                <h3>Compression settings</h3>
+                                <p>Balance quality and file size.</p>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="compressionLevel">Compression level</label>
+                                <select id="compressionLevel">
+                                    <option>Low - highest quality</option>
+                                    <option selected>Balanced - recommended</option>
+                                    <option>High - smallest size</option>
+                                    <option>Custom quality</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="qualitySlider">Quality: <span id="qualityValue">74</span>%</label>
+                                <input id="qualitySlider" type="range" min="10" max="100" value="74" data-range-label="#qualityValue">
+                            </div>
+                            <div class="field">
+                                <label for="formatSelect">Output format</label>
+                                <select id="formatSelect">
+                                    <option>Keep original</option>
+                                    <option>Convert to JPG</option>
+                                    <option selected>Convert to WebP</option>
+                                    <option>Keep PNG transparency</option>
+                                </select>
+                            </div>
+                            <label class="checkbox-row"><input type="checkbox" checked> Remove metadata</label>
+                            <label class="checkbox-row"><input type="checkbox" checked> Preserve visual sharpness</label>
+                            <button class="btn btn-primary" type="button"><i class="fa-solid fa-download"></i> Compress and Download</button>
+                            <button class="btn btn-secondary" type="button"><i class="fa-solid fa-file-zipper"></i> Download ZIP</button>
+                        </div>
+                    </article>
+
+                    <article class="side-card">
+                        <h3>Best for</h3>
+                        <ul class="check-list">
+                            <li><i class="fa-solid fa-check"></i> Faster landing pages</li>
+                            <li><i class="fa-solid fa-check"></i> Smaller email attachments</li>
+                            <li><i class="fa-solid fa-check"></i> Product galleries</li>
+                            <li><i class="fa-solid fa-check"></i> Blog and CMS uploads</li>
+                        </ul>
+                    </article>
+                </aside>
+            </section>
+
+            <section class="tool-card">
+                <div class="section-title">
+                    <div>
+                        <h2>Optimization examples</h2>
+                        <p>Use these visual slots for before-and-after compression comparisons.</p>
+                    </div>
+                </div>
+                <div class="image-grid">
+                    <article class="image-card"><img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=900&q=80" alt="Office workspace image optimization"><div><h3>Marketing image</h3><p>Compress hero and campaign assets.</p></div></article>
+                    <article class="image-card"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80" alt="Laptop in office for asset workflow"><div><h3>Web assets</h3><p>Improve load speed without heavy redesign.</p></div></article>
+                    <article class="image-card"><img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" alt="Animated technology GIF"><div><h3>GIF compression</h3><p>Reduce looping animations for quick sharing.</p></div></article>
+                </div>
+            </section>
+
+            <section class="tool-card">
+                <div class="section-title">
+                    <div>
+                        <h2>How compression works</h2>
+                        <p>Use the same flow for one image or a full batch.</p>
+                    </div>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card"><i class="fa-solid fa-upload"></i><h3>Upload</h3><p>Select images from your device.</p></div>
+                    <div class="step-card"><i class="fa-solid fa-sliders"></i><h3>Tune</h3><p>Choose quality, output format, and metadata options.</p></div>
+                    <div class="step-card"><i class="fa-solid fa-gauge-high"></i><h3>Optimize</h3><p>Compress files for lighter delivery.</p></div>
+                    <div class="step-card"><i class="fa-solid fa-download"></i><h3>Download</h3><p>Save the optimized files or a ZIP package.</p></div>
+                </div>
+            </section>
+
+            <section class="tool-card">
+                <div class="section-title">
+                    <div>
+                        <h2>Related FileSaviour tools</h2>
+                        <p>Continue improving your files.</p>
+                    </div>
+                </div>
+                <div class="tool-links">
+                    <a class="tool-chip" href="image-resize.html"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Image Resize</a>
+                    <a class="tool-chip" href="image-crop.html"><i class="fa-solid fa-crop"></i> Image Crop</a>
+                    <a class="tool-chip" href="pdf-merge.html"><i class="fa-solid fa-file-pdf"></i> PDF Merge</a>
+                    <a class="tool-chip" href="word-counter.html"><i class="fa-solid fa-chart-simple"></i> Word Counter</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="../../index.html"><img src="../../assets/images/logo/FileSaviour_LOGO.png" alt="FileSaviour logo"><span class="brand-word">FileSaviour</span></a>
+                    <p>Fast online tools for files, images, PDFs, and writing workflows.</p>
+                </div>
+                <div><h4>Pages</h4><div class="footer-links"><a href="../../index.html">Home</a><a href="../../about.html">About</a><a href="../../blog.html">Blog</a><a href="../../contact.html">Contact</a></div></div>
+                <div><h4>Image Tools</h4><div class="footer-links"><a href="image-resize.html">Image Resize</a><a href="image-compress.html">Image Compress</a><a href="image-crop.html">Image Crop</a></div></div>
+                <div><h4>Support</h4><div class="footer-links"><a href="mailto:support@ahmershah.dev">support@ahmershah.dev</a><a href="pdf-merge.html">PDF Merge</a><a href="pdf-split.html">PDF Split</a><a href="word-counter.html">Word Counter</a></div></div>
+            </div>
+            <div class="footer-bottom"><span>&copy; 2026 FileSaviour. All rights reserved.</span><span>Powerful tools. Simple experience.</span></div>
+        </div>
+    </footer>
+
+    <script src="../js/tool-pages.js"></script>
+</body>
+
+</html>

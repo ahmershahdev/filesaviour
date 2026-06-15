@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize images online with FileSaviour. Adjust width, height, format, quality, and presets in a clean browser tool.">
+    <title>Image Resize - FileSaviour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/tool-pages.css">
+    <link rel="icon" href="../assets/images/favicon/FileSaviour_ICO.png">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-shell">
+            <a class="brand" href="../../index.html" aria-label="FileSaviour home">
+                <img src="../../assets/images/logo/FileSaviour_LOGO.png" alt="FileSaviour logo">
+                <span class="brand-word">FileSaviour</span>
+            </a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="../../index.html">Home</a>
+                <a class="active" href="image-resize.html">Resize</a>
+                <a href="image-compress.html">Compress</a>
+                <a href="image-crop.html">Crop</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="../../contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="btn btn-secondary btn-small" href="../../about.html">About</a>
+                <a class="btn btn-primary btn-small" href="#tool">Use Tool</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="tool-hero" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=82');">
+            <div class="tool-hero-inner">
+                <span class="eyebrow"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Image Tool</span>
+                <h1>Image Resize</h1>
+                <p class="hero-copy">
+                    Resize images for websites, social posts, profile photos, product listings, forms, and presentations.
+                    Choose exact dimensions, keep the aspect ratio locked, and export in the format you need.
+                </p>
+                <p class="type-line">
+                    Resize for <span class="typed-text" data-typed='["web banners", "mobile uploads", "profile photos", "product galleries", "presentation slides"]'>web banners</span><span class="typing-caret"></span>
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#tool"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Image</a>
+                    <a class="btn btn-secondary" href="image-compress.html"><i class="fa-solid fa-compress"></i> Compress Next</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="tool-shell">
+            <section class="kpi-grid" aria-label="Image resize highlights">
+                <div class="kpi-card"><strong>1:1</strong><span>square presets for profile and product images</span></div>
+                <div class="kpi-card"><strong>16:9</strong><span>widescreen output for covers and thumbnails</span></div>
+                <div class="kpi-card"><strong>4</strong><span>common export formats: original, JPG, PNG, WebP</span></div>
+                <div class="kpi-card"><strong>50MB</strong><span>friendly upload target for large source images</span></div>
+            </section>
+
+            <section class="tool-layout" id="tool">
+                <div>
+                    <article class="tool-card">
+                        <div class="section-title">
+                            <div>
+                                <h2>Upload and preview</h2>
+                                <p>Choose one image, preview the result, then download a correctly sized output.</p>
+                            </div>
+                        </div>
+                        <div class="upload-zone">
+                            <div>
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <h3>Drop an image here</h3>
+                                <p id="selectedFile">No file selected yet. Supported formats include JPG, PNG, GIF, and WebP.</p>
+                                <input class="hidden-input" type="file" id="imageInput" accept="image/*" data-file-label="#selectedFile">
+                                <div class="inline-actions">
+                                    <label class="btn btn-secondary" for="imageInput"><i class="fa-solid fa-folder-open"></i> Choose Image</label>
+                                    <button class="btn btn-secondary" type="button"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="section-title">
+                            <div>
+                                <h2>Live output preview</h2>
+                                <p>The preview area is ready for the resized canvas or generated result.</p>
+                            </div>
+                        </div>
+                        <div class="preview-panel">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1300&q=80" alt="Creative workspace showing image output preview">
+                        </div>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="section-title">
+                            <div>
+                                <h2>Resize presets</h2>
+                                <p>Start from common sizes, then adjust width and height to fit your exact use case.</p>
+                            </div>
+                        </div>
+                        <div class="mini-grid">
+                            <div class="mini-card"><i class="fa-solid fa-square"></i><h3>Profile</h3><p>800 x 800 square crop-ready dimensions.</p></div>
+                            <div class="mini-card"><i class="fa-solid fa-mobile-screen"></i><h3>Mobile</h3><p>720 x 1280 for vertical mobile uploads.</p></div>
+                            <div class="mini-card"><i class="fa-solid fa-display"></i><h3>Desktop</h3><p>1600 x 900 for hero sections and previews.</p></div>
+                            <div class="mini-card"><i class="fa-solid fa-store"></i><h3>Product</h3><p>1200 x 1200 for shop and marketplace assets.</p></div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside>
+                    <article class="side-card">
+                        <div class="section-title">
+                            <div>
+                                <h3>Resize settings</h3>
+                                <p>Fine tune the output before download.</p>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-row">
+                                <div class="field">
+                                    <label for="widthInput">Width</label>
+                                    <input id="widthInput" type="number" value="1200" min="1" max="8000">
+                                </div>
+                                <div class="field">
+                                    <label for="heightInput">Height</label>
+                                    <input id="heightInput" type="number" value="800" min="1" max="8000">
+                                </div>
+                            </div>
+                            <label class="checkbox-row"><input type="checkbox" checked> Lock aspect ratio</label>
+                            <div class="field">
+                                <label for="formatSelect">Output format</label>
+                                <select id="formatSelect">
+                                    <option>Original format</option>
+                                    <option>JPG for photos</option>
+                                    <option>PNG for transparency</option>
+                                    <option>WebP for modern web</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="qualitySlider">Quality: <span id="qualityValue">82</span>%</label>
+                                <input id="qualitySlider" type="range" min="10" max="100" value="82" data-range-label="#qualityValue">
+                            </div>
+                            <button class="btn btn-primary" type="button"><i class="fa-solid fa-download"></i> Resize and Download</button>
+                            <button class="btn btn-secondary" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Apply Smart Size</button>
+                        </div>
+                    </article>
+
+                    <article class="side-card">
+                        <h3>Best for</h3>
+                        <ul class="check-list">
+                            <li><i class="fa-solid fa-check"></i> Website hero images</li>
+                            <li><i class="fa-solid fa-check"></i> Social media posts</li>
+                            <li><i class="fa-solid fa-check"></i> Marketplace product photos</li>
+                            <li><i class="fa-solid fa-check"></i> Form upload limits</li>
+                        </ul>
+                    </article>
+                </aside>
+            </section>
+
+            <section class="tool-card">
+                <div class="section-title">
+                    <div>
+                        <h2>Visual examples</h2>
+                        <p>Use these slots for real before-and-after screenshots when the image processor is connected.</p>
+                    </div>
+                </div>
+                <div class="image-grid">
+                    <article class="image-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Web dashboard preview"><div><h3>Web hero</h3><p>Large image resized for fast loading.</p></div></article>
+                    <article class="image-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Laptop with development workspace"><div><h3>Exact dimensions</h3><p>Pixel-perfect output for layouts.</p></div></article>
+                    <article class="image-card"><img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="Team reviewing digital assets"><div><h3>Batch-ready workflow</h3><p>Consistent sizes for repeat uploads.</p></div></article>
+                </div>
+            </section>
+
+            <section class="tool-card">
+                <div class="section-title">
+                    <div>
+                        <h2>Resize walkthrough</h2>
+                        <p>Four clear steps keep the tool simple for beginners and fast for repeat users.</p>
+                    </div>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card"><i class="fa-solid fa-upload"></i><h3>Upload</h3><p>Select the source image from your device.</p></div>
+                    <div class="step-card"><i class="fa-solid fa-ruler-combined"></i><h3>Set size</h3><p>Enter dimensions or choose a preset.</p></div>
+                    <div class="step-card"><i class="fa-solid fa-eye"></i><h3>Preview</h3><p>Check the output before saving.</p></div>
+                    <div class="step-card"><i class="fa-solid fa-download"></i><h3>Download</h3><p>Export the final image in your preferred format.</p></div>
+                </div>
+            </section>
+
+            <section class="tool-card">
+                <div class="section-title">
+                    <div>
+                        <h2>Related FileSaviour tools</h2>
+                        <p>Continue optimizing your visual assets.</p>
+                    </div>
+                </div>
+                <div class="tool-links">
+                    <a class="tool-chip" href="image-compress.html"><i class="fa-solid fa-compress"></i> Image Compress</a>
+                    <a class="tool-chip" href="image-crop.html"><i class="fa-solid fa-crop"></i> Image Crop</a>
+                    <a class="tool-chip" href="pdf-merge.html"><i class="fa-solid fa-file-pdf"></i> PDF Merge</a>
+                    <a class="tool-chip" href="word-counter.html"><i class="fa-solid fa-chart-simple"></i> Word Counter</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="../../index.html"><img src="../../assets/images/logo/FileSaviour_LOGO.png" alt="FileSaviour logo"><span class="brand-word">FileSaviour</span></a>
+                    <p>Fast online tools for files, images, PDFs, and writing workflows.</p>
+                </div>
+                <div><h4>Pages</h4><div class="footer-links"><a href="../../index.html">Home</a><a href="../../about.html">About</a><a href="../../blog.html">Blog</a><a href="../../contact.html">Contact</a></div></div>
+                <div><h4>Image Tools</h4><div class="footer-links"><a href="image-resize.html">Image Resize</a><a href="image-compress.html">Image Compress</a><a href="image-crop.html">Image Crop</a></div></div>
+                <div><h4>Support</h4><div class="footer-links"><a href="mailto:support@ahmershah.dev">support@ahmershah.dev</a><a href="pdf-merge.html">PDF Merge</a><a href="pdf-split.html">PDF Split</a><a href="word-counter.html">Word Counter</a></div></div>
+            </div>
+            <div class="footer-bottom"><span>&copy; 2026 FileSaviour. All rights reserved.</span><span>Powerful tools. Simple experience.</span></div>
+        </div>
+    </footer>
+
+    <script src="../js/tool-pages.js"></script>
+</body>
+
+</html>
