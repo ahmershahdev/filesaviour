@@ -1,1 +1,1 @@
-EXAMs
+EXAM
