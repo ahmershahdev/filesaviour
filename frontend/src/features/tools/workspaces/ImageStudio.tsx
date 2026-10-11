@@ -147,9 +147,9 @@ export default function ImageStudio({ tool }: WorkspaceProps) {
         <fieldset className="grid gap-3">
           <legend className="eyebrow mb-2">Size (px)</legend>
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-            <input aria-label="Width" type="number" min={1} value={width} onChange={(e) => setW(+e.target.value)} className="h-11 rounded-xl border border-line bg-surface px-3 font-mono" />
+            <input aria-label="Width" placeholder="Width" type="number" min={1} value={width} onChange={(e) => setW(+e.target.value)} className="h-11 rounded-xl border border-line bg-surface px-3 font-mono" />
             <button type="button" onClick={() => setLock(!lock)} aria-pressed={lock} className="text-xs text-fg-muted" title="Lock aspect ratio">{lock ? "🔒" : "🔓"}</button>
-            <input aria-label="Height" type="number" min={1} value={height} onChange={(e) => setH(+e.target.value)} className="h-11 rounded-xl border border-line bg-surface px-3 font-mono" />
+            <input aria-label="Height" placeholder="Height" type="number" min={1} value={height} onChange={(e) => setH(+e.target.value)} className="h-11 rounded-xl border border-line bg-surface px-3 font-mono" />
           </div>
           {mode === "resize" && (
             <div className="flex flex-wrap gap-1.5">

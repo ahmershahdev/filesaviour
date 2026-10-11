@@ -52,7 +52,7 @@ Most tools run **entirely in your browser**, so your files never leave your devi
 | 🛡️ **Private by architecture** | 17 tools run on-device (pdf-lib, Canvas, WASM). Server files live in an isolated sandbox and are deleted within **1 hour**. |
 | ⚡ **Fast** | Code-split per page. three.js, pdf-lib and the command palette load only when needed. Server-rendered HTML via Inertia SSR. |
 | 🎨 **Award-level design** | "Vault" design system, WebGL orbit hero, editorial type, dark and light themes, `prefers-reduced-motion` support. |
-| 🔎 **SEO-first** | Server-rendered meta and JSON-LD on every page, a sitemap index, `robots.txt`, `llms.txt`, `llms-full.txt`, RSS and a generated OG card per tool. |
+| 🔎 **SEO-first** | Server-rendered meta and JSON-LD on every page, a single `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt`, RSS and a generated OG card per tool. |
 | 🧩 **One registry, 42 tools** | Add a tool in one Python file and its page, nav, sitemap, schema and OG image appear automatically. |
 | 🧪 **Tested** | SEO contract tests, job privacy tests, service tests, ruff, strict TypeScript, GitHub Actions CI. |
 
@@ -77,10 +77,10 @@ Most tools run **entirely in your browser**, so your files never leave your devi
 
 > Requirements: **Python 3.12+** and **Node.js 22+**. Nothing else; there's no database server to install for local use.
 
-**Windows:** double-click **`start.bat`**. **macOS / Linux:** run `./start.sh`. Or, on any OS:
-
 ```bash
-python run.py
+git clone https://github.com/ahmershahdev/filesaviour.git
+cd filesaviour
+npm run dev
 ```
 
 The first run creates the virtual environment, installs everything, migrates the database and builds the
@@ -89,14 +89,18 @@ seconds. Press `Ctrl+C` to stop.
 
 | Command | What it does |
 |---|---|
-| `python run.py` | Set up if needed, then run the site with hot reload |
-| `python run.py --engine` | Also start the processing engine (server and AI tools) |
-| `python run.py admin` | Create your admin account (for `/console`) |
-| `python run.py test` | Django tests, ruff lint and TypeScript typecheck |
-| `python run.py build` | Production frontend build (client + SSR) |
+| `npm run dev` | Set up if needed, then run the site with hot reload |
+| `npm run dev:engine` | Also start the processing engine (server and AI tools) |
+| `npm run admin` | Create your admin account (for `/console`) |
+| `npm test` | Django tests, ruff lint and TypeScript typecheck |
+| `npm run build` | Production frontend build (client + SSR) |
+| `npm run seo` | Refresh the SEO snapshots in `docs/seo/` |
+
+Every command runs from the repo root and works the same on Windows, macOS and Linux. In development,
+emails (password resets, contact form) are printed to the terminal instead of being sent.
 
 <details>
-<summary>Manual setup (without <code>run.py</code>)</summary>
+<summary>Manual setup (without npm)</summary>
 
 ```bash
 cd backend && python -m venv .venv
@@ -306,14 +310,15 @@ at import (42 tools, unique slugs, descriptions ≤ 160 characters, valid relate
 
 ```
 filesaviour/
-├── run.py · start.bat · start.sh     one-command setup & dev server
+├── package.json · scripts/          `npm run dev` → scripts/run.mjs → scripts/run.py (setup + dev server)
 ├── backend/                          Django project
 │   ├── config/settings/              base · dev · prod (env-driven)
 │   ├── apps/
 │   │   ├── core/                     pages, SEO (seo.py, sitemaps, og.py), robots/llms, content.py
 │   │   ├── tools/                    registry.py ← single source of truth for 42 tools
 │   │   ├── jobs/                     models · services.py (writes) · selectors.py (reads) · tasks · API
-│   │   ├── accounts/                 email-login user, dashboard, services
+│   │   ├── accounts/                 email-login user, password reset, dashboard, services
+│   │   ├── contact/                  contact form: model, services, rate limit, admin
 │   │   ├── blog/                     posts + RSS
 │   │   └── console/                  staff operations console
 │   ├── templates/base.html           Inertia root + server-rendered <head>
@@ -338,7 +343,7 @@ Conventions: business logic lives in `services.py` / `selectors.py` (HackSoft Dj
 
 | File | Generated from | Snapshot |
 |---|---|---|
-| [`/sitemap.xml`](https://filesaviour.ahmershah.dev/sitemap.xml) | sitemap index → pages, tools, blog | [docs/seo/sitemap.xml](docs/seo/sitemap.xml) |
+| [`/sitemap.xml`](https://filesaviour.ahmershah.dev/sitemap.xml) | one sitemap: pages, tools, blog | [docs/seo/sitemap.xml](docs/seo/sitemap.xml) |
 | [`/robots.txt`](https://filesaviour.ahmershah.dev/robots.txt) | crawl rules + explicit AI-crawler policy | [docs/seo/robots.txt](docs/seo/robots.txt) |
 | [`/llms.txt`](https://filesaviour.ahmershah.dev/llms.txt) | [llmstxt.org](https://llmstxt.org) map of every tool | [docs/seo/llms.txt](docs/seo/llms.txt) |
 | [`/llms-full.txt`](https://filesaviour.ahmershah.dev/llms-full.txt) | all tool docs, FAQ and policies | [docs/seo/llms-full.txt](docs/seo/llms-full.txt) |
@@ -346,7 +351,7 @@ Conventions: business logic lives in `services.py` / `selectors.py` (HackSoft Dj
 | `/og/<tool>.png` | 1200×630 card per tool | `manage.py build_brand_assets` |
 
 These files are **generated live** by Django from the tool registry, so they never go stale. Snapshots in
-`docs/seo/` are refreshed with `python manage.py export_seo_files`. Every page also ships JSON-LD:
+`docs/seo/` are refreshed with `npm run seo`. Every page also ships JSON-LD:
 `Organization`, `WebSite` + `SearchAction`, and per tool `WebApplication`, `HowTo`, `FAQPage` and
 `BreadcrumbList`. Details are in [docs/SEO.md](docs/SEO.md).
 
@@ -364,7 +369,7 @@ Point `filesaviour.ahmershah.dev` at the host. Caddy issues TLS automatically. T
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). In short: `python run.py test` must pass, keep logic in
+See [CONTRIBUTING.md](CONTRIBUTING.md). In short: `npm test` must pass, keep logic in
 services/selectors, and open a PR against `master`, which is protected and needs green CI.
 
 ## Security
@@ -384,6 +389,18 @@ client filenames never touch disk, job IDs are non-enumerable, CSP/HSTS, and a 1
 
 ---
 
+## License & credits
+
+Released under the [MIT License](LICENSE.txt). © 2026 **Syed Ahmer Shah**.
+You can use, modify and redistribute the code, including commercially, as long as the copyright notice and
+the license text stay with it. The FileSaviour name and logo are not covered by the license.
+
+**Created and maintained by Syed Ahmer Shah** (see [CREDITS.md](CREDITS.md))
+
+[Website](https://ahmershah.dev) · [LinkedIn](https://linkedin.com/in/syedahmershah) · [GitHub](https://github.com/ahmershahdev) · [support@ahmershah.dev](mailto:support@ahmershah.dev)
+
+---
+
 <div align="center">
-<sub>Designed & built by <a href="https://ahmershah.dev">Syed Ahmer Shah</a> · © 2026 FileSaviour</sub>
+<sub>Designed & built by <a href="https://ahmershah.dev">Syed Ahmer Shah</a> · © 2026 FileSaviour · MIT License</sub>
 </div>

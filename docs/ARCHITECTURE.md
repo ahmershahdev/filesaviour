@@ -58,13 +58,14 @@ Ownership is enforced on every job endpoint: another session gets a 404, never a
 ## 4. Repository layout
 
 ```
-run.py · start.bat · start.sh   one-command setup + dev server (stdlib only)
+package.json · scripts/          `npm run dev` → run.mjs (finds Python) → run.py (setup + dev server, stdlib only)
 backend/
   config/settings/       base.py · dev.py (auto-detects Vite) · prod.py
   apps/core/             pages, SEO (seo.py), sitemaps, og.py, robots/llms/manifest, content.py (FAQ + legal)
   apps/tools/            registry.py (source of truth for 42 tools), tool/category views
   apps/jobs/             models · services.py (writes) · selectors.py (reads) · tasks · engine client · API views
-  apps/accounts/         email-login User, services, auth, dashboard, settings, account deletion
+  apps/accounts/         email-login User, services, auth, password reset, dashboard, settings, account deletion
+  apps/contact/          contact form (Message model, honeypot, rate limit, email to support)
   apps/blog/             Post model, index/detail, RSS feed
   apps/console/          staff console (/console)
   templates/base.html    Inertia root + server-rendered <head>
@@ -137,4 +138,4 @@ Pending tools render an honest "being built" state, never a fake result.
 
 ## 8. Local development
 
-`python run.py` (or double-click `start.bat`) creates the venv, installs dependencies (re-installing only when lockfiles change), migrates, builds a fallback bundle, then runs Vite and Django together and opens http://127.0.0.1:8000. `python run.py --engine` also starts the Flask engine. Celery runs eagerly in dev (no Redis). In dev, Django uses Vite HMR when port 5173 is up, and the built bundle otherwise, so the page is never blank.
+`npm run dev` creates the venv, installs dependencies (re-installing only when lockfiles change), migrates, builds a fallback bundle, then runs Vite and Django together and opens http://127.0.0.1:8000. `npm run dev:engine` also starts the Flask engine. Celery runs eagerly in dev (no Redis). In dev, Django uses Vite HMR when port 5173 is up, and the built bundle otherwise, so the page is never blank.

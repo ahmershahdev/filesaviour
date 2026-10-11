@@ -1,6 +1,6 @@
 # Processing engine: converters for untrusted files. Runs as non-root with a
 # read-only root filesystem (see docker-compose.yml); only /tmp is writable.
-FROM python:3.13-slim-bookworm
+FROM python:3.14-slim-bookworm
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
       ghostscript qpdf gifsicle \

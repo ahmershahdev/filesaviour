@@ -56,14 +56,16 @@ class SeoContractTests(TestCase):
         self.assertEqual(self.client.get("/rss.xml").status_code, 200)
         self.assertEqual(self.client.get("/manifest.webmanifest")["Content-Type"], "application/manifest+json")
 
-    def test_sitemaps_use_canonical_host_and_skip_unreleased_tools(self):
-        index = self.client.get("/sitemap.xml").content.decode()
-        self.assertIn(f"{settings.SITE_URL}/sitemap-tools.xml", index)
-        self.assertNotIn("testserver", index)
-        tools = self.client.get("/sitemap-tools.xml").content.decode()
-        self.assertNotIn("testserver", tools)
+    def test_single_sitemap_uses_canonical_host_and_skips_unreleased_tools(self):
+        xml = self.client.get("/sitemap.xml").content.decode()
+        self.assertIn("<urlset", xml)
+        self.assertNotIn("<sitemapindex", xml)
+        self.assertNotIn("testserver", xml)
+        self.assertIn(f"<loc>{settings.SITE_URL}/</loc>", xml)
+        self.assertIn(f"<loc>{settings.SITE_URL}/contact</loc>", xml)
         for t in registry.TOOLS:
-            (self.assertIn if t.status != "soon" else self.assertNotIn)(f"{settings.SITE_URL}{t.path}<", tools)
+            (self.assertIn if t.status != "soon" else self.assertNotIn)(f"{settings.SITE_URL}{t.path}<", xml)
+        self.assertEqual(self.client.get("/sitemap-tools.xml").status_code, 404)
 
     def test_og_image(self):
         r = self.client.get("/og/merge-pdf.png")

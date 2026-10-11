@@ -37,7 +37,7 @@ Rules: **no `AggregateRating` or reviews unless real** (tested). Google limits F
 | URL | Contents |
 |---|---|
 | `/robots.txt` | Allow all public pages; disallow `/dashboard`, `/console`, `/api/`, `/account/`, search-result URLs. Explicit allow blocks for GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended and CCBot (switch any to `Disallow` if you prefer). Sitemap link. Admin path is deliberately **not** listed. |
-| `/sitemap.xml` | Sitemap **index** → `sitemap-pages.xml`, `sitemap-tools.xml` (40 tools; `soon` excluded; `lastmod` from `CONTENT_UPDATED`), `sitemap-blog.xml` (only when posts exist). Always uses the canonical host. |
+| `/sitemap.xml` | **One** sitemap (a single `<urlset>`) with static pages, category hubs, tools (`soon` excluded; `lastmod` from `CONTENT_UPDATED`) and published blog posts. Always uses the canonical host. There are no sub-sitemaps. |
 | `/llms.txt` | [llmstxt.org](https://llmstxt.org) format: H1, summary blockquote, H2 per category with a link and description per tool, policies, and an `## Optional` section. |
 | `/llms-full.txt` | Every tool's intro, I/O formats, runtime and how-to steps, plus the full FAQ, privacy policy and terms in one Markdown file. |
 | `/rss.xml` | RSS 2.0 blog feed with `atom:link rel=self`; advertised via `<link rel="alternate">`. |

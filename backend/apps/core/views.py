@@ -64,13 +64,6 @@ def cookies(request):
     return _legal(request, content.COOKIES, "/cookies")
 
 
-def contact(request):
-    title = "Contact FileSaviour — Support, Feedback & Partnerships"
-    desc = f"Get help with a tool, report a bug or suggest a new one. Email {settings.SUPPORT_EMAIL}; we reply within two working days."
-    meta = seo.Meta(title=title, description=desc, path="/contact",
-                    jsonld=seo.site_graph(seo.webpage("ContactPage", title, desc, "/contact"), seo.breadcrumbs(("Contact", "/contact"))))
-    return page(request, "Contact", meta)
-
 
 def not_found(request, exception=None):
     return page(request, "Errors/NotFound", seo.noindex("Page not found", request.path), status=404)

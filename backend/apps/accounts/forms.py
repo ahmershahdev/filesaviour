@@ -28,6 +28,23 @@ class LoginForm(forms.Form):
     remember = forms.BooleanField(required=False)
 
 
+class ForgotPasswordForm(forms.Form):
+    email = forms.EmailField()
+
+
+class ResetPasswordForm(forms.Form):
+    password = forms.CharField()
+
+    def __init__(self, data, *, user):
+        super().__init__(data)
+        self.user = user
+
+    def clean_password(self):
+        password = self.cleaned_data["password"]
+        password_validation.validate_password(password, self.user)
+        return password
+
+
 class SettingsForm(forms.ModelForm):
     class Meta:
         model = User

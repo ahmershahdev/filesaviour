@@ -3,6 +3,8 @@ import { ArrowUpRight, Cloud, Monitor, Sparkles } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { useRef, type ComponentProps, type ReactNode } from "react";
 
+export { Checkbox, Field, PasswordField, TextArea, passwordScore } from "./form";
+
 import { cn } from "@/lib/utils";
 import type { Runtime } from "@/types";
 
@@ -90,25 +92,5 @@ export function SectionHeading({ index, eyebrow, title, children, className }: {
       </div>
       {children && <div className="text-lede text-fg-muted md:col-span-4">{children}</div>}
     </div>
-  );
-}
-
-export function Field({ label, error, hint, ...props }: ComponentProps<"input"> & { label: string; error?: string; hint?: ReactNode }) {
-  const id = props.id ?? props.name;
-  return (
-    <label htmlFor={id} className="grid gap-2">
-      <span className="text-sm font-medium">{label}</span>
-      <input
-        id={id}
-        aria-invalid={!!error}
-        aria-describedby={error ? `${id}-error` : undefined}
-        className={cn(
-          "h-12 rounded-xl border bg-surface px-4 text-fg outline-none transition placeholder:text-fg-faint focus:border-accent focus:bg-surface-2",
-          error ? "border-coral-400" : "border-line",
-        )}
-        {...props}
-      />
-      {error ? <span id={`${id}-error`} className="text-sm text-coral-400">{error}</span> : hint && <span className="text-sm text-fg-faint">{hint}</span>}
-    </label>
   );
 }

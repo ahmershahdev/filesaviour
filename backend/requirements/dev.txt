@@ -1,2 +1,2 @@
 -r base.txt
-ruff==0.14.0
+ruff==0.16.10

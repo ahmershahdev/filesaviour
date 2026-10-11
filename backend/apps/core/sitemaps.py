@@ -3,7 +3,6 @@ from urllib.parse import urlsplit
 
 from django.conf import settings
 from django.contrib.sitemaps import Sitemap
-from django.http import HttpResponse
 
 from apps.blog.models import Post
 from apps.tools import registry
@@ -63,26 +62,6 @@ class BlogSitemap(BaseSitemap):
         return obj.updated_at
 
 
+# Served as one /sitemap.xml (a single urlset): ~60 URLs is far below the 50k limit,
+# so an index plus per-section files would only add requests for crawlers.
 SITEMAPS = {"pages": StaticSitemap, "tools": ToolSitemap, "blog": BlogSitemap}
-
-
-def sitemap_index(request):
-    """Sitemap index that always points at SITE_URL (Django's uses the request host)."""
-    entries = []
-    for section in SITEMAPS:
-        lastmod = ""
-        if section == "tools":
-            lastmod = f"<lastmod>{registry.CONTENT_UPDATED}</lastmod>"
-        elif section == "blog":
-            latest = Post.objects.published().order_by("-updated_at").first()
-            if latest is None:
-                continue
-            lastmod = f"<lastmod>{latest.updated_at.date().isoformat()}</lastmod>"
-        entries.append(f"<sitemap><loc>{settings.SITE_URL}/sitemap-{section}.xml</loc>{lastmod}</sitemap>")
-    body = (
-        '<?xml version="1.0" encoding="UTF-8"?>' + chr(10)
-        + '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-        + "".join(entries)
-        + "</sitemapindex>" + chr(10)
-    )
-    return HttpResponse(body, content_type="application/xml")

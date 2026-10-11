@@ -58,7 +58,7 @@ export interface User {
 export interface SharedProps {
   [key: string]: unknown;
   meta: Meta;
-  site: { name: string; url: string; tagline: string; supportEmail: string };
+  site: { name: string; url: string; tagline: string; supportEmail: string; author: string; authorUrl: string; linkedin: string; source: string };
   auth: { user: User | null };
   catalog: { categories: Category[]; tools: ToolCard[] };
 }

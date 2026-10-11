@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 from django.test import Client
 from django.test.utils import override_settings
 
-FILES = ["robots.txt", "sitemap.xml", "sitemap-pages.xml", "sitemap-tools.xml", "llms.txt", "llms-full.txt",
+FILES = ["robots.txt", "sitemap.xml", "llms.txt", "llms-full.txt",
          "rss.xml", "manifest.webmanifest", ".well-known/security.txt"]
 
 

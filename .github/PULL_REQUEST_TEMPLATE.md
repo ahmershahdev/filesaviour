@@ -12,7 +12,7 @@
 
 ## Checklist
 
-- [ ] `python run.py test` passes (Django tests, ruff, typecheck)
+- [ ] `npm test` passes (Django tests, ruff, typecheck)
 - [ ] New tool? Added to `backend/apps/tools/registry.py` and bumped `CONTENT_UPDATED`
 - [ ] UI change? Checked dark + light mode and a 390px-wide screen
 - [ ] No secrets, user files or `.env` committed
