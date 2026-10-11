@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.sqlite3
+backend/var/
+backend/staticfiles/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+engine/.env
+!engine/.env.example
+
+# Local logs / scratch
+*.log
+.DS_Store
+Thumbs.db
+
+# Brand build intermediates
+design/brand/.ico-src/
+design/brand/node_modules/

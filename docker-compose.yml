@@ -1,0 +1,87 @@
+# FileSaviour production topology (single host). See docs/ARCHITECTURE.md.
+#
+#   caddy ──► web (Django + Inertia) ──► postgres, redis
+#                 │  └─► ssr (Node, Inertia SSR)
+#                 └─► worker (Celery) ──► engine (Flask, isolated)
+#
+name: filesaviour
+
+x-django: &django
+  build: { context: ., dockerfile: backend/Dockerfile }
+  env_file: .env
+  environment:
+    DATABASE_URL: postgres://filesaviour:${POSTGRES_PASSWORD}@postgres:5432/filesaviour
+    REDIS_URL: redis://redis:6379/0
+    ENGINE_URL: http://engine:8100
+    INERTIA_SSR_URL: http://ssr:13714
+    MEDIA_ROOT: /srv/uploads
+  volumes: [uploads:/srv/uploads]
+  depends_on: [postgres, redis]
+  networks: [app, processing]
+  restart: unless-stopped
+
+services:
+  caddy:
+    image: caddy:2.10-alpine
+    ports: ["80:80", "443:443"]
+    volumes: [./deploy/Caddyfile:/etc/caddy/Caddyfile:ro, caddy_data:/data]
+    depends_on: [web]
+    networks: [app]
+    restart: unless-stopped
+
+  web:
+    <<: *django
+    command: sh -c "python manage.py migrate --noinput && gunicorn config.wsgi --bind 0.0.0.0:8000 --workers 3 --timeout 60"
+
+  worker:
+    <<: *django
+    command: celery -A config worker --concurrency 4 --max-tasks-per-child 50 -l info
+
+  beat:
+    <<: *django
+    command: celery -A config beat -l info
+
+  ssr:
+    build: { context: frontend, dockerfile: Dockerfile.ssr }
+    networks: [app]
+    restart: unless-stopped
+
+  engine:
+    build: engine
+    env_file: .env.engine
+    read_only: true
+    tmpfs: ["/tmp:size=2g"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    mem_limit: 3g
+    cpus: 2
+    pids_limit: 256
+    # Only reachable from Django/Celery. Egress to the AI provider is the one
+    # allowed outbound route; enforce with a host firewall or egress proxy.
+    networks: [processing]
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: filesaviour
+      POSTGRES_USER: filesaviour
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    networks: [app]
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.4-alpine
+    command: redis-server --save "" --appendonly no
+    networks: [app]
+    restart: unless-stopped
+
+networks:
+  app: {}
+  processing: {}
+
+volumes:
+  pgdata: {}
+  uploads: {}
+  caddy_data: {}

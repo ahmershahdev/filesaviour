@@ -1,0 +1,26 @@
+filesaviour.ahmershah.dev {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+		-Server
+	}
+
+	# Hashed Vite assets never change.
+	@immutable path /static/assets/*
+	header @immutable Cache-Control "public, max-age=31536000, immutable"
+
+	request_body /api/jobs* {
+		max_size 220MB
+	}
+
+	reverse_proxy web:8000
+}
+
+www.filesaviour.ahmershah.dev {
+	redir https://filesaviour.ahmershah.dev{uri} permanent
+}

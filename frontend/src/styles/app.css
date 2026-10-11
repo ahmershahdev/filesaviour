@@ -1,0 +1,249 @@
+/*
+ * FileSaviour — "Vault" design system
+ * -----------------------------------
+ * Brand colours come from the logo: vault blue (shield/orbit) and signal
+ * yellow (folder). Dark midnight is the default canvas; light "paper" mode is
+ * a warm off-white, not pure white.
+ *
+ * Raw palette lives in @theme. Semantic tokens (--bg, --fg, …) switch per
+ * theme and are exposed to Tailwind via @theme inline, so components only
+ * ever use semantic utilities: bg-bg, text-fg, border-line, bg-surface…
+ */
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "@fontsource/instrument-serif/400-italic.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  /* Raw palette */
+  --color-ink-950: #05070d;
+  --color-ink-900: #0a0e18;
+  --color-ink-850: #0e1320;
+  --color-ink-800: #141a2a;
+  --color-ink-700: #1e2638;
+  --color-ink-500: #4a5470;
+  --color-ink-300: #9aa3b8;
+  --color-paper-50: #fbfaf6;
+  --color-paper-100: #f3f1ea;
+  --color-paper-200: #e8e4d8;
+  --color-paper-300: #d6d0bf;
+  --color-vault-300: #8fb1ff;
+  --color-vault-400: #5b8cff;
+  --color-vault-500: #2d6bff; /* brand blue */
+  --color-vault-600: #1d52e0;
+  --color-vault-700: #163fae;
+  --color-signal-300: #ffe08a;
+  --color-signal-400: #ffd04d;
+  --color-signal-500: #ffc21a; /* brand yellow */
+  --color-signal-600: #e0a400;
+  --color-sky-400: #4fc3ff;
+  --color-mint-400: #3ddc97;
+  --color-coral-400: #ff6b6b;
+
+  /* Type */
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  /* Fluid display scale (min @ 360px → max @ 1600px) */
+  --text-mega: clamp(3.75rem, 1.2rem + 11.5vw, 13rem);
+  --text-mega--line-height: 0.86;
+  --text-mega--letter-spacing: -0.045em;
+  --text-display: clamp(2.75rem, 1.4rem + 6vw, 7.5rem);
+  --text-display--line-height: 0.9;
+  --text-display--letter-spacing: -0.035em;
+  --text-headline: clamp(2rem, 1.35rem + 2.9vw, 4.25rem);
+  --text-headline--line-height: 0.98;
+  --text-headline--letter-spacing: -0.025em;
+  --text-title: clamp(1.375rem, 1.15rem + 1vw, 2rem);
+  --text-title--line-height: 1.1;
+  --text-lede: clamp(1.0625rem, 0.98rem + 0.4vw, 1.3125rem);
+  --text-lede--line-height: 1.55;
+
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-rise: rise 0.9s var(--ease-out-expo) both;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(0.6em); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* Semantic tokens */
+:root,
+[data-theme="dark"] {
+  --bg: var(--color-ink-950);
+  --bg-raised: var(--color-ink-900);
+  --surface: color-mix(in oklab, white 4%, transparent);
+  --surface-2: color-mix(in oklab, white 7%, transparent);
+  --fg: #f4f6fb;
+  --fg-muted: var(--color-ink-300);
+  --fg-faint: var(--color-ink-500);
+  --line: color-mix(in oklab, white 10%, transparent);
+  --line-strong: color-mix(in oklab, white 20%, transparent);
+  --accent: var(--color-vault-500);
+  --accent-fg: #ffffff;
+  --highlight: var(--color-signal-500);
+  --highlight-fg: var(--color-ink-950);
+  --ring: var(--color-signal-400);
+  --grain-opacity: 0.06;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: var(--color-paper-100);
+  --bg-raised: var(--color-paper-50);
+  --surface: color-mix(in oklab, var(--color-ink-950) 3.5%, transparent);
+  --surface-2: color-mix(in oklab, var(--color-ink-950) 6%, transparent);
+  --fg: var(--color-ink-950);
+  --fg-muted: #4b5368;
+  --fg-faint: #8a8f9c;
+  --line: color-mix(in oklab, var(--color-ink-950) 11%, transparent);
+  --line-strong: color-mix(in oklab, var(--color-ink-950) 22%, transparent);
+  --accent: var(--color-vault-600);
+  --accent-fg: #ffffff;
+  --highlight: var(--color-signal-500);
+  --highlight-fg: var(--color-ink-950);
+  --ring: var(--color-vault-500);
+  --grain-opacity: 0.045;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-faint: var(--fg-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-highlight: var(--highlight);
+  --color-highlight-fg: var(--highlight-fg);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scrollbar-gutter: stable;
+  }
+  body {
+    min-height: 100dvh;
+    background: var(--bg);
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--highlight);
+    color: var(--highlight-fg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  /* Film grain: one SVG, no requests, disabled for reduced transparency */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    body::after { display: none; }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 200;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--highlight);
+    color: var(--highlight-fg);
+    font-weight: 600;
+  }
+  .skip-link:focus { top: 1rem; }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 92rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .serif-em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .hairline { border-color: var(--line); }
+  .card {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: var(--radius-card);
+  }
+  .outline-type {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--line-strong);
+  }
+  .prose-fs { color: var(--fg-muted); line-height: 1.75; }
+  .prose-fs h2 { color: var(--fg); font-size: var(--text-title); margin: 2.5rem 0 0.75rem; }
+  .prose-fs h3 { color: var(--fg); font-size: 1.25rem; margin: 2rem 0 0.5rem; }
+  .prose-fs p, .prose-fs ul, .prose-fs ol { margin: 0 0 1rem; }
+  .prose-fs ul { list-style: disc; padding-left: 1.25rem; }
+  .prose-fs ol { list-style: decimal; padding-left: 1.25rem; }
+  .prose-fs a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--highlight); text-underline-offset: 3px; }
+  .prose-fs code { font-family: var(--font-mono); font-size: 0.9em; background: var(--surface-2); padding: 0.1em 0.35em; border-radius: 0.35em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

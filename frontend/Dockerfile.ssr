@@ -1,0 +1,10 @@
+# Inertia SSR sidecar: renders page HTML for Django on :13714.
+FROM node:22-bookworm-slim
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+USER node
+EXPOSE 13714
+CMD ["node", "dist-ssr/ssr.js"]

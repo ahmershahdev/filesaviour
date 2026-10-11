@@ -1,0 +1,18 @@
+line-length = 130
+target-version = "py313"
+extend-exclude = ["**/migrations/**"]
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "RET", "SIM", "BLE", "RUF100"]
+ignore = ["RET505"]
+
+[lint.per-file-ignores]
+"backend/config/settings/*.py" = ["F403", "F405"]
+# Copy-heavy data modules: long human-readable strings are fine.
+"backend/apps/tools/registry.py" = ["E501"]
+"backend/apps/core/content.py" = ["E501"]
+"backend/apps/core/views.py" = ["E501"]  # page copy
+"backend/apps/core/og.py" = ["E501"]
+
+[lint.isort]
+known-first-party = ["apps", "config", "processors"]
