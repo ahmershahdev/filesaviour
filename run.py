@@ -210,7 +210,7 @@ def main() -> None:
             setup_backend()
             setup_frontend()
             sh([PY, "manage.py", "test", "apps"], BACKEND)
-            sh([BACKEND / ".venv" / BIN / "ruff", "check", "backend", "engine/app.py", "engine/processors"], ROOT)
+            sh([BACKEND / ".venv" / BIN / "ruff", "check", "."], ROOT)
             sh([NPM, "run", "typecheck"], FRONTEND, shell=WIN)
             say("All checks passed.")
         else:

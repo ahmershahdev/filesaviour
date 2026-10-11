@@ -1,9 +1,11 @@
 """Outline 'File' + 'Saviour' from Bricolage Grotesque into SVG path data (font units -> px)."""
-import json, sys
-from fontTools.ttLib import TTFont
-from fontTools.varLib.instancer import instantiateVariableFont
+import json
+import sys
+
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
+from fontTools.ttLib import TTFont
+from fontTools.varLib.instancer import instantiateVariableFont
 
 font = instantiateVariableFont(TTFont(sys.argv[1]), {"wght": 760, "opsz": 96, "wdth": 100})
 gs, cmap, hmtx = font.getGlyphSet(), font.getBestCmap(), font["hmtx"]
