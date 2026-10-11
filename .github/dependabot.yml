@@ -1,23 +1,26 @@
+# One grouped PR per ecosystem per month, instead of one branch per package.
 version: 2
 updates:
   - package-ecosystem: pip
     directory: /backend/requirements
-    schedule: { interval: weekly }
-    open-pull-requests-limit: 5
+    schedule: { interval: monthly }
+    groups:
+      backend: { patterns: ["*"] }
   - package-ecosystem: pip
     directory: /engine
-    schedule: { interval: weekly }
-    open-pull-requests-limit: 5
+    schedule: { interval: monthly }
+    groups:
+      engine: { patterns: ["*"] }
   - package-ecosystem: npm
     directory: /frontend
-    schedule: { interval: weekly }
-    open-pull-requests-limit: 5
+    schedule: { interval: monthly }
     groups:
-      react: { patterns: ["react", "react-dom", "@types/react*"] }
-      three: { patterns: ["three", "@react-three/*", "@types/three"] }
+      frontend: { patterns: ["*"] }
   - package-ecosystem: github-actions
     directory: /
     schedule: { interval: monthly }
+    groups:
+      actions: { patterns: ["*"] }
   - package-ecosystem: docker
     directory: /engine
     schedule: { interval: monthly }
