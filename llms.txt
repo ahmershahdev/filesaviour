@@ -1,0 +1,35 @@
+# FileSaviour (source repository)
+
+> Source code for https://filesaviour.ahmershah.dev, a 42-tool PDF, image, AI-writing and utility toolkit.
+> Django 6 + Inertia.js 3 + React 19/TypeScript/Tailwind 4 frontend, Celery jobs, and an isolated Flask
+> processing engine. This file orients AI coding assistants. The *website's* llms.txt is served at
+> https://filesaviour.ahmershah.dev/llms.txt (snapshot: docs/seo/llms.txt).
+
+## Start here
+
+- [README](README.md): overview, quick start (`python run.py`), tool catalog, diagrams
+- [Architecture](docs/ARCHITECTURE.md): topology, job lifecycle, security model, implementation status
+- [Design system](docs/DESIGN.md): tokens, type, motion, WebGL hero
+- [SEO](docs/SEO.md): structured data, sitemap, robots, llms files
+
+## Key files
+
+- [Tool registry](backend/apps/tools/registry.py): single source of truth for all 42 tools (slug, copy, formats, runtime, status)
+- [SEO builders](backend/apps/core/seo.py): Meta + JSON-LD graph; rendered in [base.html](backend/templates/base.html)
+- [Job services](backend/apps/jobs/services.py) / [selectors](backend/apps/jobs/selectors.py): upload, queue, TTL purge, ownership
+- [Engine](engine/app.py) + [processors](engine/processors/): converters and Claude AI tools
+- [Workspaces](frontend/src/features/tools/workspaces/index.ts): slug → React workspace mapping
+- [Design tokens](frontend/src/styles/app.css)
+
+## Conventions
+
+- Business logic in `services.py` (writes) and `selectors.py` (reads); views stay thin.
+- Frontend: `pages/` are thin Inertia pages; domain UI lives in `features/`; `components/` is shared only.
+- Adding a tool: registry entry → workspace (browser) or `@processor` (engine) → bump `CONTENT_UPDATED`.
+- Checks: `python run.py test` (Django tests, ruff, tsc). CI runs the same on every PR.
+
+## Optional
+
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Brand system](design/brand/README.md)

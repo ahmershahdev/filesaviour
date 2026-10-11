@@ -3,7 +3,7 @@ import logging
 from celery import shared_task
 from django.utils import timezone
 
-from . import engine
+from . import engine, services
 from .models import Job
 
 log = logging.getLogger(__name__)
@@ -36,12 +36,4 @@ def run_job(job_id: str):
 
 @shared_task
 def purge_expired():
-    """Delete files whose TTL passed. Rows are kept (without files) for stats."""
-    expired = Job.objects.filter(expires_at__lte=timezone.now()).exclude(status=Job.Status.EXPIRED)
-    count = 0
-    for job in expired.iterator():
-        job.purge_files()
-        job.status = Job.Status.EXPIRED
-        job.save(update_fields=["status"])
-        count += 1
-    return count
+    return services.purge_expired()

@@ -1,0 +1,653 @@
+# FileSaviour — full reference
+
+> FileSaviour is a free online toolkit of 42 PDF, image, AI writing and text tools. Merge, split, compress and convert files right in your browser.
+
+## How processing works
+
+- **browser**: Runs in your browser. Your file never leaves this device.
+- **server**: Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+- **ai**: Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+## PDF Tools
+
+Merge, split, compress, convert, sign, protect and OCR PDF files.
+
+### Merge PDF
+
+URL: https://filesaviour.ahmershah.dev/merge-pdf  
+Status: live · Runs: browser · Input: PDF · Output: PDF
+
+Combine several PDFs into a single, ordered document. Drag files to reorder them, preview pages, and download one clean PDF. Merging runs entirely in your browser, so the files are never uploaded.
+
+1. **Upload your file**: Upload files (.pdf) to the Merge PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for merge pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Runs in your browser. Your file never leaves this device.
+
+### Split PDF
+
+URL: https://filesaviour.ahmershah.dev/split-pdf  
+Status: live · Runs: browser · Input: PDF · Output: PDF / ZIP
+
+Break a long PDF into smaller files: by custom ranges, at fixed intervals, or one file per page. The output arrives as individual PDFs or a single ZIP.
+
+1. **Upload your file**: Upload a file (.pdf) to the Split PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for split pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF / ZIP file. Runs in your browser. Your file never leaves this device.
+
+### PDF Page Extractor
+
+URL: https://filesaviour.ahmershah.dev/extract-pdf-pages  
+Status: live · Runs: browser · Input: PDF · Output: PDF
+
+Select pages from a thumbnail grid and save them as a new PDF, without rebuilding the document by hand. Useful for pulling one chapter, form or invoice out of a larger file.
+
+1. **Upload your file**: Upload a file (.pdf) to the PDF Page Extractor workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for pdf page extractor. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Runs in your browser. Your file never leaves this device.
+
+### Compress PDF
+
+URL: https://filesaviour.ahmershah.dev/compress-pdf  
+Status: live · Runs: server · Input: PDF · Output: PDF
+
+Shrink PDFs for email limits, upload portals and storage. Pick a level: light (print quality), balanced, or strong (screen quality). Images are resampled and fonts subset with Ghostscript.
+
+1. **Upload your file**: Upload a file (.pdf) to the Compress PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for compress pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Word to PDF
+
+URL: https://filesaviour.ahmershah.dev/word-to-pdf  
+Status: live · Runs: server · Input: DOC, DOCX, ODT, RTF · Output: PDF
+
+Turn Word documents into PDFs that look the same on every device. Layout, fonts, tables and images are kept intact by a LibreOffice rendering engine.
+
+1. **Upload your file**: Upload a file (.doc, .docx, .odt, .rtf) to the Word to PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for word to pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### PDF to Word
+
+URL: https://filesaviour.ahmershah.dev/pdf-to-word  
+Status: live · Runs: server · Input: PDF · Output: DOCX
+
+Get an editable DOCX from any PDF. Text flow, headings, tables and images are reconstructed; scanned PDFs are OCR'd first so the text is selectable.
+
+1. **Upload your file**: Upload a file (.pdf) to the PDF to Word workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for pdf to word. The preview updates as you go.
+3. **Download the result**: Download your DOCX file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Image to PDF
+
+URL: https://filesaviour.ahmershah.dev/image-to-pdf  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: PDF
+
+Turn photos, scans and screenshots into a single PDF. Set page size, margins and orientation, then reorder images before export. Runs in your browser.
+
+1. **Upload your file**: Upload files (.jpg, .jpeg, .png, .webp) to the Image to PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for image to pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Runs in your browser. Your file never leaves this device.
+
+### PDF Editor
+
+URL: https://filesaviour.ahmershah.dev/edit-pdf  
+Status: beta · Runs: browser · Input: PDF · Output: PDF
+
+Add text boxes, highlights, shapes, images and comments to an existing PDF, then flatten and download. Editing happens on your device.
+
+1. **Upload your file**: Upload a file (.pdf) to the PDF Editor workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for pdf editor. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Runs in your browser. Your file never leaves this device.
+
+### PDF to PowerPoint
+
+URL: https://filesaviour.ahmershah.dev/pdf-to-powerpoint  
+Status: live · Runs: server · Input: PDF · Output: PPTX
+
+Rebuild each PDF page as an editable PowerPoint slide, keeping text boxes and images where possible so you can rework a deck.
+
+1. **Upload your file**: Upload a file (.pdf) to the PDF to PowerPoint workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for pdf to powerpoint. The preview updates as you go.
+3. **Download the result**: Download your PPTX file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### PDF to Excel
+
+URL: https://filesaviour.ahmershah.dev/pdf-to-excel  
+Status: live · Runs: server · Input: PDF · Output: XLSX
+
+Detect tables in a PDF and export them to XLSX with rows and columns intact, ready for sorting, formulas and analysis.
+
+1. **Upload your file**: Upload a file (.pdf) to the PDF to Excel workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for pdf to excel. The preview updates as you go.
+3. **Download the result**: Download your XLSX file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Sign PDF
+
+URL: https://filesaviour.ahmershah.dev/sign-pdf  
+Status: live · Runs: browser · Input: PDF · Output: PDF
+
+Draw, type or upload your signature, drop it onto any page, and add dates or initials. The signature is applied locally; nothing is sent to a server.
+
+1. **Upload your file**: Upload a file (.pdf) to the Sign PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for sign pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Runs in your browser. Your file never leaves this device.
+
+### Protect PDF
+
+URL: https://filesaviour.ahmershah.dev/protect-pdf  
+Status: live · Runs: server · Input: PDF · Output: PDF
+
+Encrypt a PDF with AES-256 and set an open password, plus optional permissions for printing, copying and editing.
+
+1. **Upload your file**: Upload a file (.pdf) to the Protect PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for protect pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### HTML to PDF
+
+URL: https://filesaviour.ahmershah.dev/html-to-pdf  
+Status: live · Runs: server · Input: HTML, HTM, URL · Output: PDF
+
+Paste a URL or upload HTML and get a print-accurate PDF rendered by a headless browser, with page size, margins and background options.
+
+1. **Upload your file**: Upload a file (.html, .htm) to the HTML to PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for html to pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Crop PDF
+
+URL: https://filesaviour.ahmershah.dev/crop-pdf  
+Status: live · Runs: browser · Input: PDF · Output: PDF
+
+Drag a crop box over the page to trim margins, headers or scanner borders. Apply it to one page or every page at once.
+
+1. **Upload your file**: Upload a file (.pdf) to the Crop PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for crop pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Runs in your browser. Your file never leaves this device.
+
+### Translate PDF
+
+URL: https://filesaviour.ahmershah.dev/translate-pdf  
+Status: beta · Runs: ai · Input: PDF · Output: PDF / TXT
+
+Translate a PDF into another language with an AI model. The text is replaced in place so the layout stays recognisable; a side-by-side text export is also available.
+
+1. **Upload your file**: Upload a file (.pdf) to the Translate PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for translate pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF / TXT file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+### OCR PDF
+
+URL: https://filesaviour.ahmershah.dev/ocr-pdf  
+Status: live · Runs: server · Input: PDF · Output: PDF
+
+Run optical character recognition on scanned or photographed PDFs and add an invisible text layer, so the document becomes searchable and copyable.
+
+1. **Upload your file**: Upload a file (.pdf) to the OCR PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for ocr pdf. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Compare PDF
+
+URL: https://filesaviour.ahmershah.dev/compare-pdf  
+Status: live · Runs: server · Input: PDF · Output: Report
+
+Upload two versions of a document and see additions, deletions and changes highlighted side by side, with a summary of what moved.
+
+1. **Upload your file**: Upload a file (.pdf) to the Compare PDF workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for compare pdf. The preview updates as you go.
+3. **Download the result**: Download your Report file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Add Page Numbers
+
+URL: https://filesaviour.ahmershah.dev/add-page-numbers  
+Status: live · Runs: browser · Input: PDF · Output: PDF
+
+Stamp page numbers on a PDF with control over position, font, format (1, i, Page 1 of N) and page range.
+
+1. **Upload your file**: Upload a file (.pdf) to the Add Page Numbers workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for add page numbers. The preview updates as you go.
+3. **Download the result**: Download your PDF file. Runs in your browser. Your file never leaves this device.
+
+## Image Tools
+
+Compress, resize, crop, convert and clean up JPG, PNG, WebP and GIF images.
+
+### Compress Image
+
+URL: https://filesaviour.ahmershah.dev/compress-image  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: Same format / WebP / AVIF
+
+Shrink images for faster websites and lighter uploads. Compare before and after with a slider and pick the quality that still looks right. Compression runs in your browser.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the Compress Image workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for compress image. The preview updates as you go.
+3. **Download the result**: Download your Same format / WebP / AVIF file. Runs in your browser. Your file never leaves this device.
+
+### Resize Image
+
+URL: https://filesaviour.ahmershah.dev/resize-image  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: Same format
+
+Change image dimensions by pixels or percentage, or choose a preset for Instagram, YouTube, LinkedIn and passport photos. Aspect ratio lock included.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the Resize Image workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for resize image. The preview updates as you go.
+3. **Download the result**: Download your Same format file. Runs in your browser. Your file never leaves this device.
+
+### Crop Image
+
+URL: https://filesaviour.ahmershah.dev/crop-image  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: Same format
+
+Frame a photo exactly how you want with free-form or fixed aspect ratios, rotation and flip, then export at full resolution.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the Crop Image workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for crop image. The preview updates as you go.
+3. **Download the result**: Download your Same format file. Runs in your browser. Your file never leaves this device.
+
+### Image Converter
+
+URL: https://filesaviour.ahmershah.dev/convert-image  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: JPG / PNG / WebP / AVIF / GIF
+
+Change an image's format for compatibility or size: HEIC to JPG, PNG to WebP, WebP to PNG, and more, with quality and transparency options.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the Image Converter workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for image converter. The preview updates as you go.
+3. **Download the result**: Download your JPG / PNG / WebP / AVIF / GIF file. Runs in your browser. Your file never leaves this device.
+
+### Bulk Crop Images
+
+URL: https://filesaviour.ahmershah.dev/bulk-crop-images  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: ZIP
+
+Apply one crop ratio or size to a whole batch, adjust the focal point per image where needed, and download everything as a ZIP.
+
+1. **Upload your file**: Upload files (.jpg, .jpeg, .png, .webp) to the Bulk Crop Images workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for bulk crop images. The preview updates as you go.
+3. **Download the result**: Download your ZIP file. Runs in your browser. Your file never leaves this device.
+
+### Bulk Image Converter
+
+URL: https://filesaviour.ahmershah.dev/bulk-convert-images  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: ZIP
+
+Drop a folder of images and convert all of them to one format with shared quality settings. Results download as a ZIP.
+
+1. **Upload your file**: Upload files (.jpg, .jpeg, .png, .webp) to the Bulk Image Converter workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for bulk image converter. The preview updates as you go.
+3. **Download the result**: Download your ZIP file. Runs in your browser. Your file never leaves this device.
+
+### Bulk Image Compressor
+
+URL: https://filesaviour.ahmershah.dev/bulk-compress-images  
+Status: live · Runs: browser · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: ZIP
+
+Optimise an entire batch with one quality profile and see total savings at a glance. Results download as a ZIP.
+
+1. **Upload your file**: Upload files (.jpg, .jpeg, .png, .webp) to the Bulk Image Compressor workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for bulk image compressor. The preview updates as you go.
+3. **Download the result**: Download your ZIP file. Runs in your browser. Your file never leaves this device.
+
+### GIF Compressor
+
+URL: https://filesaviour.ahmershah.dev/compress-gif  
+Status: live · Runs: server · Input: GIF · Output: GIF
+
+Make animated GIFs smaller by reducing colours, dropping frames and applying lossy optimisation with gifsicle, while keeping the animation smooth.
+
+1. **Upload your file**: Upload a file (.gif) to the GIF Compressor workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for gif compressor. The preview updates as you go.
+3. **Download the result**: Download your GIF file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Background Remover
+
+URL: https://filesaviour.ahmershah.dev/remove-background  
+Status: live · Runs: server · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: PNG
+
+Cut out the subject from any photo automatically and download a transparent PNG, or replace the background with a solid colour.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the Background Remover workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for background remover. The preview updates as you go.
+3. **Download the result**: Download your PNG file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Image Enhancer
+
+URL: https://filesaviour.ahmershah.dev/enhance-image  
+Status: beta · Runs: server · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: PNG / JPG
+
+Upscale low-resolution images 2× or 4×, reduce noise and recover detail with an AI super-resolution model.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the Image Enhancer workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for image enhancer. The preview updates as you go.
+3. **Download the result**: Download your PNG / JPG file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### Watermark Remover
+
+URL: https://filesaviour.ahmershah.dev/remove-watermark  
+Status: beta · Runs: server · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: PNG / JPG
+
+Paint over a stamp, date, logo or object and AI inpainting fills the area to match its surroundings. Use it only on images you own or are licensed to edit.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the Watermark Remover workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for watermark remover. The preview updates as you go.
+3. **Download the result**: Download your PNG / JPG file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+Note: Only use this on images you own or have permission to edit. Removing watermarks from copyrighted work may break the law and our Terms.
+
+### AI Image Detector
+
+URL: https://filesaviour.ahmershah.dev/ai-image-detector  
+Status: beta · Runs: ai · Input: JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: Report
+
+Upload an image and get a probability that it was AI-generated, along with metadata and C2PA content-credential checks. Treat the score as a signal, not proof.
+
+1. **Upload your file**: Upload a file (.jpg, .jpeg, .png, .webp) to the AI Image Detector workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for ai image detector. The preview updates as you go.
+3. **Download the result**: Download your Report file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+## AI Writing Tools
+
+Summarize, paraphrase, proofread and check writing with AI.
+
+### AI Summarizer
+
+URL: https://filesaviour.ahmershah.dev/ai-summarizer  
+Status: live · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Text
+
+Paste text or upload a document and get a concise summary as bullet points, a short paragraph or a structured outline, at the length you choose.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the AI Summarizer workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for ai summarizer. The preview updates as you go.
+3. **Download the result**: Download your Text file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+### AI Paraphraser
+
+URL: https://filesaviour.ahmershah.dev/paraphrasing-tool  
+Status: live · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Text
+
+Rewrite sentences and paragraphs in a different tone (fluent, formal, simple, shorter or creative) while keeping the meaning intact. Changes are highlighted.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the AI Paraphraser workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for ai paraphraser. The preview updates as you go.
+3. **Download the result**: Download your Text file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+### Grammar Checker
+
+URL: https://filesaviour.ahmershah.dev/grammar-checker  
+Status: live · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Text
+
+Find and fix grammar, spelling, punctuation and style issues. Each suggestion comes with a short explanation so you learn as you edit.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the Grammar Checker workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for grammar checker. The preview updates as you go.
+3. **Download the result**: Download your Text file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+### AI Content Detector
+
+URL: https://filesaviour.ahmershah.dev/ai-content-detector  
+Status: beta · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Report
+
+Paste text to estimate how likely it is to be machine-generated, with sentence-level highlighting. Detectors make mistakes, so never use the score alone to accuse anyone.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the AI Content Detector workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for ai content detector. The preview updates as you go.
+3. **Download the result**: Download your Report file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+### AI Humanizer
+
+URL: https://filesaviour.ahmershah.dev/ai-humanizer  
+Status: live · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Text
+
+Rewrite stiff or generic drafts so they read like a person wrote them: varied rhythm, plain words, a consistent voice. Meant for your own drafts, not for disguising someone else's work.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the AI Humanizer workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for ai humanizer. The preview updates as you go.
+3. **Download the result**: Download your Text file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+Note: Follow your school's or employer's rules on AI-assisted writing.
+
+### Plagiarism Checker
+
+URL: https://filesaviour.ahmershah.dev/plagiarism-checker  
+Status: soon · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Report
+
+Compare your writing against web sources and see matched passages with links, so you can add citations or rewrite before you submit or publish.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the Plagiarism Checker workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for plagiarism checker. The preview updates as you go.
+3. **Download the result**: Download your Report file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+### Citation & Rewrite Assistant
+
+URL: https://filesaviour.ahmershah.dev/plagiarism-remover  
+Status: soon · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Text
+
+Take passages flagged by the plagiarism checker and either add a properly formatted citation (APA, MLA, Chicago) or rewrite the idea in your own words with attribution.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the Citation & Rewrite Assistant workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for citation & rewrite assistant. The preview updates as you go.
+3. **Download the result**: Download your Text file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+### Content Improver
+
+URL: https://filesaviour.ahmershah.dev/content-improver  
+Status: live · Runs: ai · Input: TXT, DOCX, PDF, PASTE · Output: Text
+
+Get suggestions for tone, structure, clarity and flow, with a readability score before and after. Accept changes one by one or all at once.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx, .pdf) to the Content Improver workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for content improver. The preview updates as you go.
+3. **Download the result**: Download your Text file. Sent to our AI provider for processing. Not used to train models. Deleted within 1 hour.
+
+## Utility Tools
+
+Count words, analyse text and convert or optimise everyday files.
+
+### Word Counter
+
+URL: https://filesaviour.ahmershah.dev/word-counter  
+Status: live · Runs: browser · Input: PASTE, TXT, DOCX · Output: Stats
+
+Type or paste text and see live counts for words, characters (with and without spaces), sentences, paragraphs, reading and speaking time, and keyword density.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx) to the Word Counter workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for word counter. The preview updates as you go.
+3. **Download the result**: Download your Stats file. Runs in your browser. Your file never leaves this device.
+
+### Text Analyzer
+
+URL: https://filesaviour.ahmershah.dev/text-analyzer  
+Status: live · Runs: browser · Input: PASTE, TXT, DOCX · Output: Report
+
+Measure readability (Flesch, Flesch–Kincaid, Gunning Fog), sentence length, passive voice, keyword density and lexical diversity for any text.
+
+1. **Paste or upload your file**: Paste or upload a file (.txt, .docx) to the Text Analyzer workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for text analyzer. The preview updates as you go.
+3. **Download the result**: Download your Report file. Runs in your browser. Your file never leaves this device.
+
+### File Converter
+
+URL: https://filesaviour.ahmershah.dev/file-converter  
+Status: live · Runs: server · Input: DOCX, ODT, RTF, TXT, XLSX, CSV, PPTX, PDF, JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: Varies
+
+One place for format changes: DOCX, ODT, RTF, TXT, XLSX, CSV, PPTX, images and more. Pick a target format and FileSaviour routes the file to the right engine.
+
+1. **Upload your file**: Upload a file (.docx, .odt, .rtf, .txt) to the File Converter workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for file converter. The preview updates as you go.
+3. **Download the result**: Download your Varies file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+### File Optimizer
+
+URL: https://filesaviour.ahmershah.dev/file-optimizer  
+Status: live · Runs: server · Input: PDF, DOCX, PPTX, XLSX, JPG, JPEG, PNG, WEBP, GIF, AVIF, HEIC, BMP, TIFF · Output: Same format
+
+Drop any supported file and get a smaller, cleaner version: compressed media, removed metadata and embedded thumbnails, normalised formats.
+
+1. **Upload your file**: Upload a file (.pdf, .docx, .pptx, .xlsx) to the File Optimizer workspace, or drop it anywhere on the page.
+2. **Adjust the settings**: Choose the options for file optimizer. The preview updates as you go.
+3. **Download the result**: Download your Same format file. Processed on our isolated servers over HTTPS and permanently deleted within 1 hour.
+
+## Frequently asked questions
+
+### Privacy & files
+
+**What happens to my files after I upload them?**  
+Files processed on our servers are stored in an isolated, encrypted scratch area, processed, and permanently deleted within one hour. Many tools (marked “In browser”) never upload your file at all.
+
+**Which tools run entirely in my browser?**  
+Merge, split, extract and crop PDF, image to PDF, sign PDF, add page numbers, PDF editor, every image compress/resize/crop/convert tool including the bulk versions, word counter and text analyzer. Your file never leaves your device with these.
+
+**Do you use my documents to train AI?**  
+No. Text sent to AI tools is processed by our AI provider under terms that prohibit training on it, and we delete it from our side within one hour.
+
+**Can FileSaviour staff see my files?**  
+No one browses user files. Automated systems process them and delete them. We only look at a specific file if you send it to support and ask us to.
+
+### Accounts & limits
+
+**Do I need an account?**  
+No. Every live tool works without signing up. A free account adds a 7-day history of results, higher file-size limits and saved preferences.
+
+**What are the file size limits?**  
+Without an account, server tools accept files up to 50 MB. With a free account the limit is 200 MB. Browser tools are limited only by your device's memory.
+
+**Is FileSaviour really free?**  
+Yes. The core tools are free. We keep costs down by running as much as possible in your browser.
+
+**How do I delete my account?**  
+Go to Dashboard → Settings → Delete account. Your profile, history and any stored results are erased immediately.
+
+### Tools & quality
+
+**Will converting a PDF to Word keep my formatting?**  
+Text, headings, tables and images are reconstructed. Very complex layouts, such as magazines or forms with overlapping elements, may need small manual fixes.
+
+**How accurate are the AI detectors?**  
+No AI detector is fully reliable. Our AI content and image detectors give a probability and show their signals. Use them as one input, never as proof against a person.
+
+**Which browsers are supported?**  
+The latest two versions of Chrome, Edge, Firefox and Safari on desktop and mobile.
+
+**A tool failed. What should I do?**  
+Try again once, since most failures are temporary. If it keeps happening, email support@ahmershah.dev with the tool name and file type. Don't attach sensitive files.
+
+## Privacy Policy (updated 2026-10-11)
+
+FileSaviour is built to need as little of your data as possible. This policy explains what we collect, why, and how long we keep it.
+
+### Summary
+
+Browser tools never upload your files. Server and AI tools delete files within 1 hour. We don't sell personal data, and we don't use your files to train AI.
+
+### 1. Who we are
+
+The data controller is Syed Ahmer Shah, operating FileSaviour at https://filesaviour.ahmershah.dev. Contact: support@ahmershah.dev.
+
+### 2. What we collect
+
+Files and text you submit to server or AI tools, processed only to deliver your result.
+Account data if you register: email, display name, hashed password, preferences.
+Job metadata: tool used, file type, size, duration and success or failure. This is kept without file contents for service statistics.
+Technical data: IP address (truncated for analytics), browser type and coarse location, used for security, abuse prevention and rate limiting.
+
+### 3. File processing & retention
+
+In-browser tools: your file is processed on your device and is never sent to us.
+Server tools: files go over TLS to an isolated processing service, are stored encrypted at rest, and are permanently deleted within 1 hour, or immediately when you click “Delete now”.
+AI tools: text or file contents are sent to our AI provider (Anthropic) for processing under terms that prohibit training on API data. We delete our copy within 1 hour.
+Account history keeps result files for up to 7 days if you enable it, and you can delete them at any time.
+
+### 4. Legal bases (GDPR/UK GDPR)
+
+Performance of a contract: processing files you submit and running your account.
+Legitimate interests: security, fraud and abuse prevention, and aggregate service analytics.
+Consent: optional analytics cookies and marketing email. You can withdraw consent at any time.
+
+### 5. Who we share data with
+
+Infrastructure and hosting providers, the AI provider for AI tools, and an email delivery provider for account emails. All are bound by data processing agreements. We never sell or rent personal data.
+
+### 6. International transfers
+
+Some providers process data outside your country. Where required, transfers rely on Standard Contractual Clauses or equivalent safeguards.
+
+### 7. Cookies
+
+Essential cookies: session, CSRF protection and theme preference. Optional: privacy-friendly analytics, only with your consent. See the Cookie Policy for details.
+
+### 8. Your rights
+
+You may access, correct, export or delete your data, object to or restrict processing, and complain to your data protection authority. California residents have equivalent CCPA/CPRA rights. Email support@ahmershah.dev; we reply within 30 days.
+
+### 9. Security
+
+TLS everywhere, encryption at rest, isolated processing containers without internet access, least-privilege access, and automated deletion. No system is perfectly secure, and we will notify you of a breach affecting your data as required by law.
+
+### 10. Children
+
+FileSaviour is not directed at children under 13, and we do not knowingly collect their data.
+
+### 11. Changes
+
+We will post updates here and change the date above. Material changes will be announced in advance.
+
+## Terms of Service (updated 2026-10-11)
+
+These terms govern your use of FileSaviour (https://filesaviour.ahmershah.dev), operated by Syed Ahmer Shah. By using the service you agree to them.
+
+### 1. The service
+
+FileSaviour provides online tools to convert, edit, compress, analyse and generate files and text. Some tools run in your browser; others process files on our servers or through third-party AI providers, as labelled on each tool.
+We may add, change or remove tools at any time. Tools marked “Beta” may produce imperfect results.
+
+### 2. Eligibility & accounts
+
+You must be at least 13 years old (or the minimum age in your country) to use FileSaviour, and at least 16 to create an account in the EEA/UK.
+You are responsible for keeping your login credentials secure and for all activity under your account.
+
+### 3. Your content
+
+You keep all rights to the files and text you upload (“Your Content”). You grant us a limited licence to store and process Your Content solely to provide the tool you requested, for no longer than our retention period.
+You confirm you have the rights needed to process Your Content, including any third-party copyrights, trademarks or personal data in it.
+
+### 4. Acceptable use
+
+You must not use FileSaviour to: infringe intellectual property (including removing watermarks or copyright notices from work you do not own); process unlawful content; commit academic dishonesty or fraud; forge signatures or documents; distribute malware; or overload, probe or reverse-engineer the service.
+We may suspend access, delete content or report activity to authorities where we reasonably believe these rules have been broken.
+
+### 5. AI features
+
+AI outputs (summaries, rewrites, detection scores, translations) are generated automatically and can be wrong. Review them before relying on them.
+Detection scores are probabilistic and must not be the sole basis for decisions about a person, such as academic misconduct or employment.
+
+### 6. Fees
+
+Core tools are free. If we introduce paid plans, prices and terms will be shown before you buy, and these terms will be updated.
+
+### 7. Our intellectual property
+
+The FileSaviour name, logo, design and software are owned by us or our licensors. You may not copy or reuse them without permission.
+
+### 8. Disclaimers
+
+The service is provided “as is” and “as available”. To the extent permitted by law we disclaim all warranties, including fitness for a particular purpose and non-infringement. Keep your own copy of important files; we do not provide backups.
+
+### 9. Limitation of liability
+
+To the extent permitted by law, we are not liable for indirect, incidental or consequential damages, or for loss of data or profits. Our total liability for any claim is limited to the greater of USD 50 or the amount you paid us in the previous 12 months.
+Nothing in these terms limits liability that cannot be limited by law.
+
+### 10. Termination
+
+You can stop using the service and delete your account at any time. We may suspend or terminate access for breach of these terms.
+
+### 11. Changes
+
+We may update these terms. Material changes will be announced on the site or by email at least 14 days before they take effect.
+
+### 12. Contact
+
+Questions about these terms: support@ahmershah.dev.

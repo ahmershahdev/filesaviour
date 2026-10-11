@@ -3,7 +3,7 @@ import { Link, useForm } from "@inertiajs/react";
 import { Button, Field } from "@/components/ui";
 import type { Errors } from "@/types";
 
-import AuthShell from "@/components/site/AuthShell";
+import AuthShell from "@/features/auth/AuthShell";
 
 function Register({ errors }: { errors: Errors }) {
   const form = useForm({ name: "", email: "", password: "", accept_terms: false });

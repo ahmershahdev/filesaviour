@@ -23,16 +23,17 @@ type Sheet = { radius: number; angle: number; speed: number; y: number; spin: TH
 function makeSheets(count: number): Sheet[] {
   const rand = mulberry32(42); // deterministic: identical layout on every load
   return Array.from({ length: count }, () => {
-    const band = rand() < 0.82; // most sheets ride the ring, a few drift in a halo
-    const radius = band ? 3.1 + (rand() - 0.5) * 1.3 : 2 + rand() * 4.2;
+    const band = rand() < 0.86; // most sheets ride the ring, a few drift in a halo
+    // Halo stays inside r≈4.3 so no sheet swings close enough to the camera to fill the screen.
+    const radius = band ? 3.1 + (rand() - 0.5) * 0.9 : 2.2 + rand() * 2.1;
     return {
       radius,
       angle: rand() * Math.PI * 2,
       speed: (0.05 + rand() * 0.07) * (band ? 1 : 0.5) * (4 / radius),
-      y: (rand() - 0.5) * (band ? 0.55 : 3.2),
+      y: (rand() - 0.5) * (band ? 0.45 : 2.4),
       spin: new THREE.Euler(rand() * Math.PI, rand() * Math.PI, rand() * Math.PI),
       spinSpeed: 0.2 + rand() * 0.8,
-      scale: 0.55 + rand() * 0.75,
+      scale: 0.45 + rand() * 0.5,
     };
   });
 }
@@ -158,7 +159,7 @@ export default function VaultScene({ progress }: { progress: React.RefObject<num
   const count = useMemo(() => {
     if (typeof window === "undefined") return 900;
     const w = window.innerWidth;
-    return w < 640 ? 600 : w < 1200 ? 1000 : 1400;
+    return w < 640 ? 500 : w < 1200 ? 800 : 1100;
   }, []);
 
   return (
@@ -191,9 +192,11 @@ function ResponsiveCamera() {
   const camera = useThree((s) => s.camera);
   const aspect = useThree((s) => s.size.width / s.size.height);
   useEffect(() => {
-    const z = aspect >= 1.2 ? 8.2 : 8.2 * (1.25 / Math.max(aspect, 0.4)) * 0.9;
-    camera.position.set(0, aspect >= 1.2 ? 0.6 : 1.6, z);
-    camera.lookAt(0, aspect >= 1.2 ? 0 : 0.9, 0);
+    const wide = aspect >= 1.2;
+    const z = wide ? 9.6 : 8.2 * (1.25 / Math.max(aspect, 0.4)) * 0.95;
+    // On wide screens look left of the vault so it sits to the right of the headline.
+    camera.position.set(wide ? -2.4 : 0, wide ? 0.8 : 1.6, z);
+    camera.lookAt(wide ? -2.4 : 0, wide ? 0.2 : 0.9, 0);
   }, [camera, aspect]);
   return null;
 }

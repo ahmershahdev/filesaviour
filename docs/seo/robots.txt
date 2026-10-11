@@ -1,0 +1,72 @@
+# FileSaviour — https://filesaviour.ahmershah.dev
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+Disallow: /account/
+Disallow: /*?*q=
+
+# AI answer engines and assistants may read public pages and llms.txt.
+# Change Allow to Disallow for any bot you don't want.
+User-agent: GPTBot
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+User-agent: CCBot
+Allow: /
+Disallow: /dashboard
+Disallow: /console
+Disallow: /api/
+
+Sitemap: https://filesaviour.ahmershah.dev/sitemap.xml

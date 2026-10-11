@@ -7,3 +7,4 @@ docker-compose.yml text eol=lf
 *.png binary
 *.ico binary
 *.ttf binary
+start.bat text eol=crlf

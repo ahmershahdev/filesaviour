@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
 
-import { ToolCard } from "@/components/tool/ToolCard";
+import { ToolCard } from "@/features/tools/components/ToolCard";
 import { ToolIcon } from "@/lib/icons";
 import { CATEGORY_ACCENT } from "@/lib/utils";
 import type { CategorySlug, SharedProps } from "@/types";

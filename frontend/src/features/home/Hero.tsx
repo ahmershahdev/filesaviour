@@ -53,7 +53,7 @@ export default function HeroVisual() {
 
 function StaticOrbit({ faded }: { faded: boolean }) {
   return (
-    <svg viewBox="-200 -200 400 400" className={`absolute inset-0 m-auto h-full w-full max-w-[70rem] transition-opacity duration-[1.5s] ${faded ? "opacity-0" : "opacity-100"}`}>
+    <svg viewBox="-200 -200 400 400" className={`absolute inset-0 m-auto h-full w-full max-w-[70rem] transition-opacity duration-[1.5s] lg:translate-x-[22%] ${faded ? "opacity-0" : "opacity-100"}`}>
       <defs>
         <radialGradient id="core" r="0.5">
           <stop offset="0" stopColor="#ffc21a" />

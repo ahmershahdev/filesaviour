@@ -3,10 +3,10 @@ import Lenis from "lenis";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, type ReactNode } from "react";
 
-import Flash from "@/components/site/Flash";
-import Footer from "@/components/site/Footer";
-import Header from "@/components/site/Header";
-import Seo from "@/components/site/Seo";
+import Flash from "@/components/layout/Flash";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import Seo from "@/components/seo/Seo";
 import { prefersReducedMotion } from "@/lib/utils";
 
 export default function SiteLayout({ children }: { children: ReactNode }) {

@@ -2,7 +2,7 @@ import { usePage } from "@inertiajs/react";
 import { Search } from "lucide-react";
 import { useDeferredValue, useMemo, useState } from "react";
 
-import { ToolCard } from "@/components/tool/ToolCard";
+import { ToolCard } from "@/features/tools/components/ToolCard";
 import { cn } from "@/lib/utils";
 import type { CategorySlug, SharedProps } from "@/types";
 

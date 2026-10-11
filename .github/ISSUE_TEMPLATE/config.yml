@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://filesaviour.ahmershah.dev/.well-known/security.txt
+    about: Please report privately, not in a public issue.

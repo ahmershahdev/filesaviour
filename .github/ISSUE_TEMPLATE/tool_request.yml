@@ -1,0 +1,11 @@
+name: Tool request
+description: Suggest a new tool or an improvement to one
+labels: [enhancement]
+body:
+  - type: textarea
+    id: job
+    attributes: { label: What file job is painful today?, placeholder: "I need to turn 30 receipts into one PDF…" }
+    validations: { required: true }
+  - type: dropdown
+    id: category
+    attributes: { label: Category, options: [PDF, Image, AI writing, Utility, Other] }

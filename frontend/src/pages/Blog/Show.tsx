@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react";
 import { ArrowLeft } from "lucide-react";
 
-import { ToolCard } from "@/components/tool/ToolCard";
+import { ToolCard } from "@/features/tools/components/ToolCard";
 import type { ToolCard as ToolCardType } from "@/types";
 
 type Post = { title: string; excerpt: string; publishedAt: string; readingMinutes: number; cover: string | null; body: string };

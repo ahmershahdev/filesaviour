@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui";
 import { download, formatBytes, logBrowserRun } from "@/lib/utils";
 
-import Dropzone from "../Dropzone";
+import Dropzone from "../components/Dropzone";
 import type { WorkspaceProps } from "./index";
 
 type Item = { id: string; file: File; pages?: number };

@@ -118,6 +118,9 @@ STORAGES = {
 DJANGO_VITE = {
     "default": {
         "dev_mode": env.bool("VITE_DEV_MODE", default=DEBUG),
+        # Must match vite.config.ts server.host. "localhost" can resolve to IPv6 (::1)
+        # on Windows while Vite listens on IPv4, which leaves the page unstyled.
+        "dev_server_host": "127.0.0.1",
         "dev_server_port": 5173,
         "manifest_path": VITE_OUT_DIR / "manifest.json",
     }

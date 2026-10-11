@@ -3,7 +3,6 @@ import json
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.db.models import Count, Sum
 from django.shortcuts import redirect
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_POST
@@ -11,11 +10,11 @@ from inertia.http import clear_history
 
 from apps.core import seo
 from apps.core.render import page
-from apps.jobs.models import Job
+from apps.jobs import selectors as job_selectors
 from apps.tools import registry
 
+from . import services
 from .forms import LoginForm, RegisterForm, SettingsForm, errors_of
-from .models import User
 
 
 def _data(request):
@@ -58,7 +57,7 @@ def register_view(request):
     if request.method == "POST":
         form = RegisterForm(_data(request))
         if form.is_valid():
-            user = User.objects.create_user(
+            user = services.user_create(
                 email=form.cleaned_data["email"], password=form.cleaned_data["password"], name=form.cleaned_data["name"]
             )
             login(request, user, backend="django.contrib.auth.backends.ModelBackend")
@@ -77,16 +76,14 @@ def logout_view(request):
 
 @login_required
 def dashboard(request):
-    jobs = Job.objects.filter(user=request.user)
-    stats = jobs.aggregate(total=Count("id"), saved=Sum("bytes_saved"))
-    top = jobs.values("tool").annotate(n=Count("id")).order_by("-n")[:6]
+    top = job_selectors.user_top_tools(user=request.user)
     return page(
         request,
         "Dashboard/Index",
         seo.noindex("Dashboard", "/dashboard"),
-        stats={"jobs": stats["total"] or 0, "bytesSaved": stats["saved"] or 0},
+        stats=job_selectors.user_stats(user=request.user),
         favourites=[{**registry.get(r["tool"]).to_card(), "uses": r["n"]} for r in top if registry.get(r["tool"])],
-        recent=[j.as_row() for j in jobs.order_by("-created_at")[:20]],
+        recent=[j.as_row() for j in job_selectors.jobs_for_owner(user=request.user).order_by("-created_at")[:20]],
     )
 
 
@@ -116,5 +113,5 @@ def delete_account(request):
     user = request.user
     logout(request)
     clear_history(request)
-    user.delete()  # cascades to jobs; stored files are removed by the Job post_delete signal
+    services.user_delete(user=user)
     return redirect("core:home")

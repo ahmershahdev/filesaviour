@@ -10,7 +10,7 @@ import { Button } from "@/components/ui";
 import { csrfToken, formatBytes } from "@/lib/utils";
 import type { JobRow } from "@/types";
 
-import Dropzone from "../Dropzone";
+import Dropzone from "../components/Dropzone";
 import type { WorkspaceProps } from "./index";
 
 type Phase = { name: "idle" } | { name: "uploading"; pct: number } | { name: "processing"; job: JobRow } | { name: "done"; job: JobRow } | { name: "error"; message: string };

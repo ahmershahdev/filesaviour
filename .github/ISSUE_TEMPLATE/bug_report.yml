@@ -1,0 +1,15 @@
+name: Bug report
+description: A tool or page doesn't work as expected
+labels: [bug]
+body:
+  - type: input
+    id: tool
+    attributes: { label: Tool or page, placeholder: "e.g. /compress-pdf" }
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes: { label: What happened?, description: "Steps, expected vs actual. Never attach private files." }
+    validations: { required: true }
+  - type: input
+    id: env
+    attributes: { label: Browser & device, placeholder: "Chrome 141 on Windows 11" }

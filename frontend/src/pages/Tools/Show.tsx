@@ -2,8 +2,8 @@ import { Link, usePage } from "@inertiajs/react";
 import { ChevronRight, Info, Plus } from "lucide-react";
 import { Suspense } from "react";
 
-import { ToolCard } from "@/components/tool/ToolCard";
-import { workspaceFor } from "@/components/tool/workspaces";
+import { ToolCard } from "@/features/tools/components/ToolCard";
+import { workspaceFor } from "@/features/tools/workspaces";
 import { RuntimeBadge, StatusBadge } from "@/components/ui";
 import { ToolIcon } from "@/lib/icons";
 import { CATEGORY_ACCENT } from "@/lib/utils";

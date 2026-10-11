@@ -58,26 +58,34 @@ Ownership is enforced on every job endpoint: another session gets a 404, never a
 ## 4. Repository layout
 
 ```
-backend/                 Django project
-  config/settings/       base.py · dev.py · prod.py (env-driven, no secrets in git)
-  apps/core/             pages, SEO (seo.py), sitemaps, robots/llms/manifest, OG images, content.py (FAQ + legal)
-  apps/tools/            registry.py (THE source of truth for 42 tools), tool/category views
-  apps/jobs/             Job model, upload API, Celery tasks, engine client
-  apps/accounts/         email-login User, auth, dashboard, settings, account deletion
+run.py · start.bat · start.sh   one-command setup + dev server (stdlib only)
+backend/
+  config/settings/       base.py · dev.py (auto-detects Vite) · prod.py
+  apps/core/             pages, SEO (seo.py), sitemaps, og.py, robots/llms/manifest, content.py (FAQ + legal)
+  apps/tools/            registry.py (source of truth for 42 tools), tool/category views
+  apps/jobs/             models · services.py (writes) · selectors.py (reads) · tasks · engine client · API views
+  apps/accounts/         email-login User, services, auth, dashboard, settings, account deletion
   apps/blog/             Post model, index/detail, RSS feed
-  apps/console/          staff console (/console): KPIs, tool health, failures, users
+  apps/console/          staff console (/console)
   templates/base.html    Inertia root + server-rendered <head>
-frontend/                Vite + React + TS + Tailwind v4
-  src/styles/app.css     design tokens (see DESIGN.md)
-  src/pages/             one file per Inertia page (code-split)
-  src/layouts/           SiteLayout (public), AppLayout (dashboard/console)
-  src/components/        site/ (header, footer, ⌘K, SEO), tool/ (dropzone, cards, workspaces/), webgl/, ui/
-  src/ssr.tsx            Inertia SSR server
+frontend/src/
+  pages/                 thin Inertia pages (code-split)
+  features/tools/        components/ (ToolCard, Dropzone, SmartDrop) · workspaces/ (per-tool UIs)
+  features/home/         WebGL hero (Hero, VaultScene)
+  features/auth/         AuthShell
+  components/            ui/ · layout/ (Header, Footer, ⌘K) · brand/ (Logo) · seo/ (Seo)
+  layouts/ lib/ styles/  SiteLayout & AppLayout · utils/icons · design tokens
 engine/                  Flask processing service + processors/
-deploy/Caddyfile         edge config
-docker-compose.yml       production topology
-design/brand/            logo system source (SVG builder, wordmark outlines) → backend/static/brand
+design/brand/            logo system source
+deploy/ · docker-compose.yml · .github/ (CI, Dependabot, templates)
+docs/                    this documentation, images/, seo/ snapshots
 ```
+
+**Layering rules**
+
+- Backend (after the [HackSoft Django styleguide](https://github.com/HackSoftware/Django-Styleguide)): views parse HTTP and render; `services.py` holds writes and business rules; `selectors.py` holds reads. Models stay small, with no business logic in `save()`.
+- Frontend (feature-based, after bulletproof-react): `pages/` compose features; a feature never imports another feature's internals; `components/` holds only shared building blocks.
+- Each app owns its tests (`apps/<app>/tests.py`).
 
 ## 5. Pages & routes
 
@@ -129,4 +137,4 @@ Pending tools render an honest "being built" state, never a fake result.
 
 ## 8. Local development
 
-See the README. In short: `backend/` venv + `runserver`, `frontend/` `npm run dev`, optional `engine/` venv with `ENGINE_TOKEN`. Celery runs eagerly in dev (no Redis needed).
+`python run.py` (or double-click `start.bat`) creates the venv, installs dependencies (re-installing only when lockfiles change), migrates, builds a fallback bundle, then runs Vite and Django together and opens http://127.0.0.1:8000. `python run.py --engine` also starts the Flask engine. Celery runs eagerly in dev (no Redis). In dev, Django uses Vite HMR when port 5173 is up, and the built bundle otherwise, so the page is never blank.

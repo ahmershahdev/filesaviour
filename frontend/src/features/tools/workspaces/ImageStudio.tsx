@@ -9,7 +9,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui";
 import { cn, download, formatBytes, logBrowserRun } from "@/lib/utils";
 
-import Dropzone from "../Dropzone";
+import Dropzone from "../components/Dropzone";
 import type { WorkspaceProps } from "./index";
 
 type Format = "image/jpeg" | "image/webp" | "image/png" | "image/avif";

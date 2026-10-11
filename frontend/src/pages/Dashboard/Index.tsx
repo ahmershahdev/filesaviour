@@ -1,7 +1,7 @@
 import { Link, usePage } from "@inertiajs/react";
 import { Download } from "lucide-react";
 
-import { ToolCard } from "@/components/tool/ToolCard";
+import { ToolCard } from "@/features/tools/components/ToolCard";
 import AppLayout from "@/layouts/AppLayout";
 import { cn, formatBytes, formatDate } from "@/lib/utils";
 import type { JobRow, SharedProps, ToolCard as ToolCardType } from "@/types";

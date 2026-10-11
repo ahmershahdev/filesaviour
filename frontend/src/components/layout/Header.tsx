@@ -7,7 +7,7 @@ import { ToolIcon } from "@/lib/icons";
 import { CATEGORY_ACCENT, cn } from "@/lib/utils";
 import type { SharedProps } from "@/types";
 
-import { Wordmark } from "./Logo";
+import { Wordmark } from "@/components/brand/Logo";
 import ThemeToggle from "./ThemeToggle";
 
 // cmdk + its dialog are only fetched the first time the palette opens.

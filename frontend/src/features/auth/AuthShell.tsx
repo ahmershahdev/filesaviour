@@ -1,8 +1,8 @@
 import { Link } from "@inertiajs/react";
 import type { ReactNode } from "react";
 
-import { Wordmark } from "./Logo";
-import Seo from "./Seo";
+import { Wordmark } from "@/components/brand/Logo";
+import Seo from "@/components/seo/Seo";
 
 /** Split-screen shell: form on the left, brand statement on the right. */
 export default function AuthShell({ title, subtitle, children }: { title: ReactNode; subtitle: ReactNode; children: ReactNode }) {

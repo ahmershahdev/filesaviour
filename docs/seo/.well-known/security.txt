@@ -1,0 +1,5 @@
+Contact: mailto:support@ahmershah.dev
+Expires: 2027-10-11T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://filesaviour.ahmershah.dev/.well-known/security.txt
+Policy: https://filesaviour.ahmershah.dev/terms#acceptable-use

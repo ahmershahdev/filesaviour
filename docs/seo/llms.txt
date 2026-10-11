@@ -1,0 +1,72 @@
+# FileSaviour
+
+> FileSaviour is a free online toolkit of 42 PDF, image, AI writing and text tools. Merge, split, compress and convert files right in your browser. Free to use without an account. Browser tools never upload files; server and AI tools delete files within one hour.
+
+FileSaviour has 42 tools in four categories. Each tool lives at a short URL (https://filesaviour.ahmershah.dev/<tool-slug>). Tools marked “in browser” process files locally with WebAssembly/Canvas.
+
+## PDF Tools
+
+- [Merge PDF](https://filesaviour.ahmershah.dev/merge-pdf): Merge PDF files online for free. Combine multiple PDFs into one document and reorder pages by drag and drop — files never leave your browser.
+- [Split PDF](https://filesaviour.ahmershah.dev/split-pdf): Split a PDF into separate files by page range, every N pages, or one file per page. Free, fast and private.
+- [PDF Page Extractor](https://filesaviour.ahmershah.dev/extract-pdf-pages): Extract selected pages from a PDF into a new document. Pick pages visually and download only what you need.
+- [Compress PDF](https://filesaviour.ahmershah.dev/compress-pdf): Reduce PDF file size online while keeping text sharp. Choose a compression level for email, portals or archiving.
+- [Word to PDF](https://filesaviour.ahmershah.dev/word-to-pdf): Convert DOC and DOCX to PDF online with layout, fonts and images preserved. Free Word to PDF converter.
+- [PDF to Word](https://filesaviour.ahmershah.dev/pdf-to-word): Convert PDF to editable Word (DOCX) online. Keep paragraphs, tables and images so you can edit the document.
+- [Image to PDF](https://filesaviour.ahmershah.dev/image-to-pdf): Convert JPG, PNG, WebP and HEIC images to PDF. Combine scans, receipts and photos into one document.
+- [PDF Editor](https://filesaviour.ahmershah.dev/edit-pdf) (beta): Edit PDF files online: add text, shapes, highlights, images and annotations. Free browser-based PDF editor.
+- [PDF to PowerPoint](https://filesaviour.ahmershah.dev/pdf-to-powerpoint): Convert PDF to PowerPoint (PPTX) online. Turn PDF slides and layouts into editable presentations.
+- [PDF to Excel](https://filesaviour.ahmershah.dev/pdf-to-excel): Extract tables from PDF to Excel (XLSX). Convert bank statements, invoices and reports into spreadsheets.
+- [Sign PDF](https://filesaviour.ahmershah.dev/sign-pdf): Sign PDF documents online. Draw, type or upload a signature and place it anywhere on the page — free and private.
+- [Protect PDF](https://filesaviour.ahmershah.dev/protect-pdf): Password-protect a PDF with AES-256 encryption. Restrict printing, copying and editing before you share.
+- [HTML to PDF](https://filesaviour.ahmershah.dev/html-to-pdf): Convert a web page URL or HTML file to PDF with accurate CSS rendering. Save receipts, articles and templates.
+- [Crop PDF](https://filesaviour.ahmershah.dev/crop-pdf): Crop PDF margins and page areas online. Trim whitespace from scans or cut pages to a custom size.
+- [Translate PDF](https://filesaviour.ahmershah.dev/translate-pdf) (beta): Translate PDF documents into 30+ languages with AI while keeping the original layout as closely as possible.
+- [OCR PDF](https://filesaviour.ahmershah.dev/ocr-pdf): Make scanned PDFs searchable with OCR. Recognise text in 100+ languages and copy, search or index it.
+- [Compare PDF](https://filesaviour.ahmershah.dev/compare-pdf): Compare two PDFs and highlight every text change side by side. Spot edits between contract or report versions.
+- [Add Page Numbers](https://filesaviour.ahmershah.dev/add-page-numbers): Add page numbers to a PDF online. Choose position, style, start number and which pages to number.
+
+## Image Tools
+
+- [Compress Image](https://filesaviour.ahmershah.dev/compress-image): Compress JPG, PNG, WebP and GIF images online. Cut file size by up to 80% with a live quality preview.
+- [Resize Image](https://filesaviour.ahmershah.dev/resize-image): Resize images to exact pixels, percentage or social media presets. Free online image resizer for JPG, PNG and WebP.
+- [Crop Image](https://filesaviour.ahmershah.dev/crop-image): Crop images online to any size or aspect ratio — 1:1, 16:9, 4:5 and custom. Free and private.
+- [Image Converter](https://filesaviour.ahmershah.dev/convert-image): Convert images between JPG, PNG, WebP, AVIF, GIF and HEIC online. Fast, free image format converter.
+- [Bulk Crop Images](https://filesaviour.ahmershah.dev/bulk-crop-images): Crop many images at once with the same ratio or size. Ideal for product photos, galleries and thumbnails.
+- [Bulk Image Converter](https://filesaviour.ahmershah.dev/bulk-convert-images): Convert hundreds of images to JPG, PNG, WebP or AVIF in one go. Free batch image format conversion.
+- [Bulk Image Compressor](https://filesaviour.ahmershah.dev/bulk-compress-images): Compress many images at once. Batch-optimise JPG, PNG and WebP for websites, email and storage.
+- [GIF Compressor](https://filesaviour.ahmershah.dev/compress-gif): Compress animated GIFs online. Reduce colours, frames and dimensions to make GIFs lighter for chat and web.
+- [Background Remover](https://filesaviour.ahmershah.dev/remove-background): Remove image backgrounds automatically with AI. Get a transparent PNG for products, profiles and thumbnails.
+- [Image Enhancer](https://filesaviour.ahmershah.dev/enhance-image) (beta): Upscale and enhance photos with AI. Sharpen details, reduce noise and fix lighting in one click.
+- [Watermark Remover](https://filesaviour.ahmershah.dev/remove-watermark) (beta): Remove unwanted marks, text and objects from your own images with AI inpainting. For images you own or have rights to edit.
+- [AI Image Detector](https://filesaviour.ahmershah.dev/ai-image-detector) (beta): Check whether an image is likely AI-generated. Get a probability score and the signals behind it.
+
+## AI Writing Tools
+
+- [AI Summarizer](https://filesaviour.ahmershah.dev/ai-summarizer): Summarize articles, PDFs and notes with AI. Get key points, a TL;DR or a structured summary in seconds.
+- [AI Paraphraser](https://filesaviour.ahmershah.dev/paraphrasing-tool): Paraphrase text with AI in fluent, formal, simple or creative modes while keeping the original meaning.
+- [Grammar Checker](https://filesaviour.ahmershah.dev/grammar-checker): Free AI grammar checker. Fix spelling, punctuation and clarity issues with explanations for every change.
+- [AI Content Detector](https://filesaviour.ahmershah.dev/ai-content-detector) (beta): Estimate whether text was written by AI. Sentence-level highlighting with an honest confidence score.
+- [AI Humanizer](https://filesaviour.ahmershah.dev/ai-humanizer): Make stiff, robotic drafts read naturally. Rewrite AI-assisted text in your own voice and tone.
+- [Plagiarism Checker](https://filesaviour.ahmershah.dev/plagiarism-checker) (coming soon): Check text for plagiarism against web sources. See matched passages, sources and an originality score.
+- [Citation & Rewrite Assistant](https://filesaviour.ahmershah.dev/plagiarism-remover) (coming soon): Fix flagged passages properly: add citations or rewrite overlapping text in your own words.
+- [Content Improver](https://filesaviour.ahmershah.dev/content-improver): Improve writing tone, structure, flow and readability with AI. Tighten emails, essays, posts and docs.
+
+## Utility Tools
+
+- [Word Counter](https://filesaviour.ahmershah.dev/word-counter): Count words, characters, sentences, paragraphs and reading time instantly. Free online word counter.
+- [Text Analyzer](https://filesaviour.ahmershah.dev/text-analyzer): Analyse readability, keyword density, sentence length and tone. Flesch score and grade level included.
+- [File Converter](https://filesaviour.ahmershah.dev/file-converter): Convert documents, spreadsheets, presentations and images between 50+ formats. One free online file converter.
+- [File Optimizer](https://filesaviour.ahmershah.dev/file-optimizer): Optimise PDFs, images and office files for upload limits, email and storage. Strip metadata and shrink size.
+
+## Help & policies
+
+- [FAQ](https://filesaviour.ahmershah.dev/faq): files, privacy, limits, accounts
+- [Privacy Policy](https://filesaviour.ahmershah.dev/privacy): retention and processors
+- [Terms of Service](https://filesaviour.ahmershah.dev/terms)
+- [About](https://filesaviour.ahmershah.dev/about)
+
+## Optional
+
+- [Full text for LLMs](https://filesaviour.ahmershah.dev/llms-full.txt): every tool's description, steps and FAQ in one file
+- [Blog RSS](https://filesaviour.ahmershah.dev/rss.xml)
+- [Sitemap](https://filesaviour.ahmershah.dev/sitemap.xml)

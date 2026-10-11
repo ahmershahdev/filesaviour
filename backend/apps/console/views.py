@@ -8,13 +8,14 @@ editing; the console is where staff watch tool health and usage.
 from datetime import timedelta
 
 from django.contrib.admin.views.decorators import staff_member_required
-from django.db.models import Avg, Count, F, Q, Sum
+from django.db.models import Count, Q, Sum
 from django.utils import timezone
 
 from apps.accounts.models import User
 from apps.blog.models import Post
 from apps.core import seo
 from apps.core.render import page
+from apps.jobs import selectors as job_selectors
 from apps.jobs.models import Job
 from apps.tools import registry
 
@@ -26,19 +27,11 @@ def overview(request):
     jobs = Job.objects.all()
     last_week = jobs.filter(created_at__gte=week)
 
-    per_tool = {
-        r["tool"]: r
-        for r in last_week.values("tool").annotate(
-            runs=Count("id"),
-            failed=Count("id", filter=Q(status=Job.Status.FAILED)),
-            avg_ms=Avg(F("finished_at") - F("created_at")),
-        )
-    }
+    per_tool = job_selectors.tool_health(days=7)
     tools = []
     for t in registry.TOOLS:
         r = per_tool.get(t.slug, {})
-        runs, failed = r.get("runs", 0), r.get("failed", 0)
-        avg = r.get("avg_ms")
+        runs, failed, avg = r.get("runs", 0), r.get("failed", 0), r.get("avg")
         tools.append({
             **t.to_card(),
             "runs": runs,
@@ -46,12 +39,6 @@ def overview(request):
             "failRate": round(failed / runs * 100, 1) if runs else 0,
             "avgMs": int(avg.total_seconds() * 1000) if avg else None,
         })
-
-    daily = [
-        {"day": (now - timedelta(days=i)).date().isoformat(),
-         "runs": jobs.filter(created_at__date=(now - timedelta(days=i)).date()).count()}
-        for i in range(13, -1, -1)
-    ]
 
     return page(
         request, "Console/Overview", seo.noindex("Console", "/console"),
@@ -65,7 +52,7 @@ def overview(request):
             "queued": jobs.filter(status__in=[Job.Status.QUEUED, Job.Status.RUNNING]).count(),
             "posts": Post.objects.published().count(),
         },
-        daily=daily,
+        daily=job_selectors.daily_runs(days=14),
         tools=sorted(tools, key=lambda t: -t["runs"]),
         failures=[{**j.as_row(), "error": j.error} for j in jobs.filter(status=Job.Status.FAILED)[:15]],
     )

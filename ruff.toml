@@ -8,6 +8,7 @@ ignore = ["RET505"]
 
 [lint.per-file-ignores]
 "backend/config/settings/*.py" = ["F403", "F405"]
+"run.py" = ["UP036"]  # bootstrap: must give a friendly error on old Pythons
 # Copy-heavy data modules: long human-readable strings are fine.
 "backend/apps/tools/registry.py" = ["E501"]
 "backend/apps/core/content.py" = ["E501"]

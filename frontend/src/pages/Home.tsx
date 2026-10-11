@@ -3,10 +3,10 @@ import { ArrowDown, Cloud, Monitor, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
-import SmartDrop from "@/components/tool/SmartDrop";
-import { ToolCard, ToolRow } from "@/components/tool/ToolCard";
+import SmartDrop from "@/features/tools/components/SmartDrop";
+import { ToolCard, ToolRow } from "@/features/tools/components/ToolCard";
 import { ButtonLink, Reveal, SectionHeading } from "@/components/ui";
-import HeroVisual from "@/components/webgl/Hero";
+import HeroVisual from "@/features/home/Hero";
 import { ToolIcon } from "@/lib/icons";
 import { CATEGORY_ACCENT } from "@/lib/utils";
 import type { SharedProps, ToolCard as ToolCardType } from "@/types";

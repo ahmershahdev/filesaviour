@@ -2,10 +2,10 @@ import { Link, router, usePage } from "@inertiajs/react";
 import { BarChart3, Clock3, ExternalLink, LayoutGrid, LogOut, Settings, Users } from "lucide-react";
 import type { ReactNode } from "react";
 
-import Flash from "@/components/site/Flash";
-import { Wordmark } from "@/components/site/Logo";
-import Seo from "@/components/site/Seo";
-import ThemeToggle from "@/components/site/ThemeToggle";
+import Flash from "@/components/layout/Flash";
+import { Wordmark } from "@/components/brand/Logo";
+import Seo from "@/components/seo/Seo";
+import ThemeToggle from "@/components/layout/ThemeToggle";
 import { cn } from "@/lib/utils";
 import type { SharedProps } from "@/types";
 

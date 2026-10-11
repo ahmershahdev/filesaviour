@@ -3,7 +3,7 @@ import { ArrowUpRight, Rss } from "lucide-react";
 
 import type { SharedProps } from "@/types";
 
-import { Wordmark } from "./Logo";
+import { Wordmark } from "@/components/brand/Logo";
 
 export default function Footer() {
   const { catalog, site } = usePage<SharedProps>().props;

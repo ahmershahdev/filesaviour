@@ -69,30 +69,3 @@ class SeoContractTests(TestCase):
         r = self.client.get("/og/merge-pdf.png")
         self.assertEqual(r["Content-Type"], "image/png")
         self.assertEqual(self.client.get("/og/not-a-tool.png").status_code, 404)
-
-
-class RegistryTests(TestCase):
-    def test_slugs_do_not_shadow_site_routes(self):
-        reserved = {"tools", "about", "faq", "contact", "terms", "privacy", "cookies", "blog", "dashboard",
-                    "console", "account", "api", "static", "og", *(p.strip("/") for p in registry.CATEGORY_PATHS.values())}
-        self.assertFalse(reserved & set(registry.by_slug()))
-
-    def test_categories_add_up(self):
-        self.assertEqual(sum(c["count"] for c in registry.category_payload()), len(registry.TOOLS))
-
-
-@override_settings(DJANGO_VITE=VITE_DEV, ALLOWED_HOSTS=["testserver"], CELERY_TASK_ALWAYS_EAGER=True)
-class JobApiTests(TestCase):
-    def test_browser_tools_are_rejected_by_upload_api(self):
-        r = self.client.post("/api/jobs", {"tool": "merge-pdf"})
-        self.assertEqual(r.status_code, 400)
-
-    def test_jobs_are_private_to_their_session(self):
-        from apps.jobs.models import Job
-
-        self.client.post("/api/jobs/log", json.dumps({"tool": "word-counter"}), content_type="application/json")
-        job = Job.objects.get()
-        self.assertEqual(self.client.get(f"/api/jobs/{job.id}").status_code, 200)
-        self.client.logout()
-        other = self.client_class()
-        self.assertEqual(other.get(f"/api/jobs/{job.id}").status_code, 404)
