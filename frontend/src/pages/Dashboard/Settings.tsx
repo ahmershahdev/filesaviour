@@ -17,8 +17,8 @@ function Settings({ profile, errors }: { profile: Profile; errors: Errors }) {
       <h1 className="text-headline mt-3">Your account</h1>
 
       <form onSubmit={(e) => { e.preventDefault(); form.post("/dashboard/settings", { preserveScroll: true }); }} className="card mt-10 grid gap-6 p-6 md:p-8">
-        <Field label="Email" name="email" value={profile.email} disabled hint="Contact support to change your email." />
-        <Field label="Display name" name="name" value={form.data.name} onChange={(e) => form.setData("name", e.target.value)} error={errors.name} />
+        <Field label="Email" name="email" value={profile.email} placeholder="you@example.com" disabled hint="Contact support to change your email." />
+        <Field label="Display name" name="name" placeholder="How your name appears in FileSaviour" maxLength={80} value={form.data.name} onChange={(e) => form.setData("name", e.target.value)} error={errors.name} />
         <label className="flex items-start gap-3">
           <input type="checkbox" checked={form.data.keep_history} onChange={(e) => form.setData("keep_history", e.target.checked)} className="mt-1 size-4 accent-[var(--highlight)]" />
           <span><span className="font-medium">Keep results for 7 days</span><span className="block text-sm text-fg-muted">Off: every result is deleted after 1 hour, like for guests.</span></span>
@@ -35,7 +35,7 @@ function Settings({ profile, errors }: { profile: Profile; errors: Errors }) {
         <p className="mt-2 text-fg-muted">Your profile, history and stored files are erased immediately. This can't be undone.</p>
         <label className="mt-6 grid gap-2 text-sm">
           Type <span className="font-mono">delete</span> to confirm
-          <input value={confirm} onChange={(e) => setConfirm(e.target.value)} className="h-11 max-w-xs rounded-xl border border-line bg-surface px-3" />
+          <input value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder="delete" autoComplete="off" className="h-11 max-w-xs rounded-xl border border-line bg-surface px-3 placeholder:text-fg-faint" />
         </label>
         <Button variant="ghost" className="mt-4 border-coral-400/60 text-coral-400" disabled={confirm !== "delete"} onClick={() => router.post("/account/delete")}>
           Delete my account

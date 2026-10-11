@@ -81,7 +81,7 @@ TERMS = {
         {"id": "fees", "heading": "6. Fees",
          "body": ["Core tools are free. If we introduce paid plans, prices and terms will be shown before you buy, and these terms will be updated."]},
         {"id": "ip", "heading": "7. Our intellectual property",
-         "body": ["The FileSaviour name, logo, design and software are owned by us or our licensors. You may not copy or reuse them without permission."]},
+         "body": ["FileSaviour's source code is open source under the MIT License (https://github.com/ahmershahdev/filesaviour). The FileSaviour name and logo are not covered by that license and may not be used to imply endorsement without permission."]},
         {"id": "disclaimer", "heading": "8. Disclaimers",
          "body": ["The service is provided “as is” and “as available”. To the extent permitted by law we disclaim all warranties, including fitness for a particular purpose and non-infringement. Keep your own copy of important files; we do not provide backups."]},
         {"id": "liability", "heading": "9. Limitation of liability",

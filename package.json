@@ -1,0 +1,20 @@
+{
+  "name": "filesaviour",
+  "version": "1.0.0",
+  "private": true,
+  "description": "42 free PDF, image, AI-writing and utility tools in one private workspace.",
+  "license": "MIT",
+  "author": "Syed Ahmer Shah <support@ahmershah.dev> (https://ahmershah.dev)",
+  "homepage": "https://filesaviour.ahmershah.dev",
+  "repository": { "type": "git", "url": "git+https://github.com/ahmershahdev/filesaviour.git" },
+  "engines": { "node": ">=22", "python": ">=3.12" },
+  "scripts": {
+    "dev": "node scripts/run.mjs dev",
+    "dev:engine": "node scripts/run.mjs dev --engine",
+    "setup": "node scripts/run.mjs setup",
+    "admin": "node scripts/run.mjs admin",
+    "build": "node scripts/run.mjs build",
+    "test": "node scripts/run.mjs test",
+    "seo": "node scripts/run.mjs seo"
+  }
+}

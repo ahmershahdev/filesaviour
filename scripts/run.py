@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
 FileSaviour: one command to set up and run everything locally.
+Normally started through npm from the repo root (see package.json):
 
-    python run.py            set up (first time / when deps change), then start the site
-    python run.py --engine   also start the processing engine (server + AI tools)
-    python run.py setup      only install / migrate / build
-    python run.py admin      create your admin (superuser) account
-    python run.py build      production frontend build
-    python run.py test       backend tests + lint + frontend typecheck
+    npm run dev              set up (first time / when deps change), then start the site
+    npm run dev:engine       also start the processing engine (server + AI tools)
+    npm run setup            only install / migrate / build
+    npm run admin            create your admin (superuser) account
+    npm run build            production frontend build
+    npm test                 backend tests + lint + frontend typecheck
+    npm run seo              refresh the SEO snapshots in docs/seo/
 
 Stdlib only, so it runs before anything is installed. Windows, macOS, Linux.
 """
@@ -26,7 +28,7 @@ import time
 import webbrowser
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 BACKEND, FRONTEND, ENGINE = ROOT / "backend", ROOT / "frontend", ROOT / "engine"
 WIN = os.name == "nt"
 BIN = "Scripts" if WIN else "bin"
@@ -199,13 +201,16 @@ def main() -> None:
             if command == "dev":
                 serve("--engine" in args)
             else:
-                say("Setup complete. Start with: python run.py")
+                say("Setup complete. Start with: npm run dev")
         elif command == "admin":
             setup_backend()
             sh([PY, "manage.py", "createsuperuser"], BACKEND)
         elif command == "build":
             setup_frontend(build=True)
             sh([NPM, "run", "build"], FRONTEND, shell=WIN)
+        elif command == "seo":
+            setup_backend()
+            sh([PY, "manage.py", "export_seo_files"], BACKEND)
         elif command == "test":
             setup_backend()
             setup_frontend()

@@ -15,6 +15,10 @@ def inertia_share(get_response):
                 "url": settings.SITE_URL,
                 "tagline": settings.SITE_TAGLINE,
                 "supportEmail": settings.SUPPORT_EMAIL,
+                "author": settings.SITE_AUTHOR,
+                "authorUrl": settings.SITE_AUTHOR_URL,
+                "linkedin": settings.SITE_AUTHOR_LINKEDIN,
+                "source": settings.SITE_SOURCE_URL,
             },
             auth=lambda: {
                 "user": (

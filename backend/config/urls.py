@@ -9,7 +9,7 @@ from apps.blog import views as blog
 from apps.console import views as console
 from apps.core import og
 from apps.core import views as core
-from apps.core.sitemaps import SITEMAPS, sitemap_index
+from apps.core.sitemaps import SITEMAPS
 from apps.tools import registry
 from apps.tools import views as tools
 
@@ -20,7 +20,6 @@ core_patterns = (
         path("", core.home, name="home"),
         path("about", core.about, name="about"),
         path("faq", core.faq, name="faq"),
-        path("contact", core.contact, name="contact"),
         path("terms", core.terms, name="terms"),
         path("privacy", core.privacy, name="privacy"),
         path("cookies", core.cookies, name="cookies"),
@@ -45,8 +44,7 @@ seo_files = [
     path("og/<slug:slug>.png", og.tool_og, name="og-tool"),
     path("favicon.ico", RedirectView.as_view(url="/static/brand/favicon.ico", permanent=True)),
     path("rss.xml", blog.LatestPostsFeed(), name="rss"),
-    path("sitemap.xml", cache_page(DAY)(sitemap_index)),
-    path("sitemap-<section>.xml", cache_page(DAY)(sitemap), {"sitemaps": SITEMAPS}, name="sitemap-section"),
+    path("sitemap.xml", cache_page(DAY)(sitemap), {"sitemaps": SITEMAPS}, name="sitemap"),
 ]
 
 category_routes = [
@@ -59,6 +57,7 @@ urlpatterns = [
     path("", include(core_patterns)),
     path("", include(blog_patterns)),
     path("", include("apps.accounts.urls")),
+    path("", include("apps.contact.urls")),
     path("", include("apps.jobs.urls")),
     path("console", console.overview, name="console"),
     path("console/users", console.users, name="console-users"),

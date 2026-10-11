@@ -7,7 +7,7 @@
 
 ## Start here
 
-- [README](README.md): overview, quick start (`python run.py`), tool catalog, diagrams
+- [README](README.md): overview, quick start (`npm run dev`), tool catalog, diagrams
 - [Architecture](docs/ARCHITECTURE.md): topology, job lifecycle, security model, implementation status
 - [Design system](docs/DESIGN.md): tokens, type, motion, WebGL hero
 - [SEO](docs/SEO.md): structured data, sitemap, robots, llms files
@@ -26,7 +26,7 @@
 - Business logic in `services.py` (writes) and `selectors.py` (reads); views stay thin.
 - Frontend: `pages/` are thin Inertia pages; domain UI lives in `features/`; `components/` is shared only.
 - Adding a tool: registry entry → workspace (browser) or `@processor` (engine) → bump `CONTENT_UPDATED`.
-- Checks: `python run.py test` (Django tests, ruff, tsc). CI runs the same on every PR.
+- Checks: `npm test` (Django tests, ruff, tsc). CI runs the same on every PR.
 
 ## Optional
 

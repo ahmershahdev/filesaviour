@@ -34,6 +34,8 @@ SITE_DESCRIPTION = (
 )
 SITE_AUTHOR = "Syed Ahmer Shah"
 SITE_AUTHOR_URL = "https://ahmershah.dev"
+SITE_AUTHOR_LINKEDIN = "https://linkedin.com/in/syedahmershah"
+SITE_SOURCE_URL = "https://github.com/ahmershahdev/filesaviour"
 SUPPORT_EMAIL = env("SUPPORT_EMAIL", default="support@ahmershah.dev")
 
 INSTALLED_APPS = [
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
     "apps.tools",
     "apps.jobs",
     "apps.blog",
+    "apps.contact",
     "apps.console",
 ]
 
@@ -97,6 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+PASSWORD_RESET_TIMEOUT = 60 * 60  # reset links work for one hour
 LOGIN_URL = "accounts:login"
 LOGIN_REDIRECT_URL = "accounts:dashboard"
 
@@ -104,6 +108,12 @@ LANGUAGE_CODE = "en"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
+
+# --- Email ------------------------------------------------------------------
+# Unset: mail is printed to the console (dev). Prod: EMAIL_URL=smtp+tls://user:pass@host:587
+globals().update(env.email_url("EMAIL_URL", default="consolemail://"))
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="FileSaviour <no-reply@ahmershah.dev>")
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # --- Static & Vite ---------------------------------------------------------
 STATIC_URL = "/static/"
